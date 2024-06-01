@@ -1,0 +1,49 @@
+.container {
+  margin: 0 auto;
+  width: 100%;
+  padding: 5rem;
+  background-color: aqua;
+}
+
+.intro {
+  background-color: var(--cream);
+  padding: 5rem;
+}
+
+.previewRetreats {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  flex-wrap: wrap;
+  div ul {
+    display: flex;
+    flex-direction: row;
+    // flex-wrap: wrap;
+  }
+  div ul li {
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    width: 20%;
+    padding: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    box-sizing: border-box;
+
+    flex-grow: 1;
+    min-height: 15rem;
+  }
+}
+.previewRetreats div ul li button {
+  background-color: white;
+  color: blue;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.previewRetreats div ul li button:hover {
+  background-color: lightgray;
+}

@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import imageHome from '../public/images/imageHome.webp';
-import styles from './page.module.css';
+import styles from './Page.module.scss';
 
 export default function Home() {
   return (
     <div>
-      <section>
+      <div className={styles.container}>
         <div>
           <h1>Welcome to Cornafy Yoga!</h1>
           <p>
@@ -19,8 +19,8 @@ export default function Home() {
             height={350}
           />
         </div>
-      </section>
-      <section>
+      </div>
+      <section className={styles.intro}>
         <h2>HEADING 2</h2>
         <p>
           Lorem ipsum semper habeo duo, ut vis. Aliquyam eu splendide. Ut mei
@@ -31,42 +31,44 @@ export default function Home() {
           Aliquam labore inimicus voluptua. Penatibus sea Vel amet. His
         </p>
       </section>
-      <div>
-        <ul>
-          <li>
-            <h4>Retreat 1</h4>
-            <p>
-              Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
-              pretium cetero qui arcu
-            </p>
-            <button> -- Zum Retreat</button>
-          </li>
-          <li>
-            <h4>Retreat 2</h4>
-            <p>
-              Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
-              pretium cetero qui arcu
-            </p>
-            <button> -- Zum Retreat</button>
-          </li>
-          <li>
-            <h4>Retreat 3</h4>
-            <p>
-              Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
-              pretium cetero qui arcu
-            </p>
-            <button> -- Zum Retreat</button>
-          </li>
-          <li>
-            <h4>Retreat 4</h4>
-            <p>
-              Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
-              pretium cetero qui arcu
-            </p>
-            <button> -- Zum Retreat</button>
-          </li>
-        </ul>
-      </div>
+      <section className={styles.previewRetreats}>
+        <div>
+          <ul>
+            <li>
+              <h4>Retreat 1</h4>
+              <p>
+                Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
+                pretium cetero qui arcu
+              </p>
+              <button> -- Zum Retreat</button>
+            </li>
+            <li>
+              <h4>Retreat 2</h4>
+              <p>
+                Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
+                pretium cetero qui arcu
+              </p>
+              <button> -- Zum Retreat</button>
+            </li>
+            <li>
+              <h4>Retreat 3</h4>
+              <p>
+                Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
+                pretium cetero qui arcu
+              </p>
+              <button> -- Zum Retreat</button>
+            </li>
+            <li>
+              <h4>Retreat 4</h4>
+              <p>
+                Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
+                pretium cetero qui arcu
+              </p>
+              <button> -- Zum Retreat</button>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }
