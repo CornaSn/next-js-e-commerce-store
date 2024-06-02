@@ -1,4 +1,4 @@
-import './globals.css';
+import './globals.scss';
 import localFont from 'next/font/local';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -39,9 +39,9 @@ export default function RootLayout({ children }) {
                 />
                 <Link href="/">Home</Link>
                 <Link href="/about">About us</Link>
-                <Link href="/retreats">Retreats</Link>
+                <Link href="/workshops">Workshops</Link>
                 <Link href="/contact">Contact</Link>
-                <p>Cart: 0</p>
+                <li>Cart: {Math.floor(Math.random() * 10)}</li>
               </ul>
             </nav>
           </div>

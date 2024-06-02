@@ -1,20 +1,22 @@
-// import { useRouter } from 'next/navigation';
-// import { useState } from 'react';
+'use client';
 
-// export default function GenerateButton() {
-//   const [color, setColor] = useState('#123fee');
-//   const router = useRouter;
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-//   return (
-//     <button
-//       style={{ backgroundColor: color }}
-//       onClick={() => {
-//         setColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+export default function GenerateButton() {
+  const [color, setColor] = useState('#123fee');
+  const router = useRouter();
 
-//         router.refresh();
-//       }}
-//     >
-//       generate
-//     </button>
-//   );
-// }
+  return (
+    <button
+      style={{ backgroundColor: color }}
+      onClick={() => {
+        // setColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+
+        router.refresh();
+      }}
+    >
+      Add to Cart
+    </button>
+  );
+}

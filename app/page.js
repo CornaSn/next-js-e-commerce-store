@@ -10,7 +10,7 @@ export default function Home() {
           <h1>Welcome to Cornafy Yoga!</h1>
           <p>
             Discover the perfect blend of adventure and serenity with Cornafy
-            Yoga Retreats. Explore our diverse selection of retreats.
+            Yoga Workshops. Explore our diverse selection of Workshops.
           </p>
           <Image
             src={imageHome}
@@ -31,40 +31,40 @@ export default function Home() {
           Aliquam labore inimicus voluptua. Penatibus sea Vel amet. His
         </p>
       </section>
-      <section className={styles.previewRetreats}>
+      <section className={styles.previewWorkshops}>
         <div>
           <ul>
             <li>
-              <h4>Retreat 1</h4>
+              <h4>Workshop 1</h4>
               <p>
                 Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
                 pretium cetero qui arcu
               </p>
-              <button> -- Zum Retreat</button>
+              <button>-- Zum Workshop</button>
             </li>
             <li>
-              <h4>Retreat 2</h4>
+              <h4>Workshop 2</h4>
               <p>
                 Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
                 pretium cetero qui arcu
               </p>
-              <button> -- Zum Retreat</button>
+              <button> -- Zum Workshop</button>
             </li>
             <li>
-              <h4>Retreat 3</h4>
+              <h4>Workshop 3</h4>
               <p>
                 Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
                 pretium cetero qui arcu
               </p>
-              <button> -- Zum Retreat</button>
+              <button> -- Zum Workshop</button>
             </li>
             <li>
-              <h4>Retreat 4</h4>
+              <h4>Workshop 4</h4>
               <p>
                 Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
                 pretium cetero qui arcu
               </p>
-              <button> -- Zum Retreat</button>
+              <button> -- Zum Workshop</button>
             </li>
           </ul>
         </div>

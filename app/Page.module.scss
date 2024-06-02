@@ -10,7 +10,7 @@
   padding: 5rem;
 }
 
-.previewRetreats {
+.previewWorkshops {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
@@ -22,6 +22,7 @@
   }
   div ul li {
     background-color: var(--blue);
+
     display: flex;
     flex-direction: column;
     color: var(--white);
@@ -35,7 +36,7 @@
     min-height: 15rem;
   }
 }
-.previewRetreats div ul li button {
+.previewWorkshops div ul li button {
   background-color: white;
   color: blue;
   border: none;
@@ -44,6 +45,6 @@
   margin-top: auto;
 }
 
-.previewRetreats div ul li button:hover {
+.previewWorkshops div ul li button:hover {
   background-color: lightgray;
 }
