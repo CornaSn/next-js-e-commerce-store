@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import { getWorkshops } from '../database/workshops';
 import imageHome from '../public/images/imageHome.webp';
 import styles from './Page.module.scss';
 
 export default function Home() {
+  const workshops = getWorkshops();
   return (
     <div>
       <div className={styles.container}>
@@ -33,40 +35,29 @@ export default function Home() {
       </section>
       <section className={styles.previewWorkshops}>
         <div>
-          <ul>
-            <li>
-              <h4>Workshop 1</h4>
-              <p>
-                Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
-                pretium cetero qui arcu
-              </p>
-              <button>-- Zum Workshop</button>
-            </li>
-            <li>
-              <h4>Workshop 2</h4>
-              <p>
-                Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
-                pretium cetero qui arcu
-              </p>
-              <button> -- Zum Workshop</button>
-            </li>
-            <li>
-              <h4>Workshop 3</h4>
-              <p>
-                Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
-                pretium cetero qui arcu
-              </p>
-              <button> -- Zum Workshop</button>
-            </li>
-            <li>
-              <h4>Workshop 4</h4>
-              <p>
-                Aliquyam eu splendide. Ut mei eteu nec antiopam corpora. Kasd
-                pretium cetero qui arcu
-              </p>
-              <button> -- Zum Workshop</button>
-            </li>
-          </ul>
+          <div>
+            These are the workshops
+            <ul>
+              {workshops.map((workshop) => {
+                return (
+                  <li key={`workshops-${workshop.id}`}>
+                    <div>
+                      <div>{workshop.workshopName}</div>
+                      <Image
+                        src={`/images/${workshop.image}.webp`}
+                        alt=""
+                        width={200}
+                        height={200}
+                      />
+                      <div>{workshop.location}</div>
+                      <div>{workshop.date}</div>
+                      <button>More Details</button>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </section>
     </div>

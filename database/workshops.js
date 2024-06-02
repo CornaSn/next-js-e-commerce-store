@@ -1,3 +1,5 @@
+import 'server-only';
+
 const workshops = [
   {
     id: 1,
