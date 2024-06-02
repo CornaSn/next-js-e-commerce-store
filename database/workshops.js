@@ -50,3 +50,7 @@ const workshops = [
 export function getWorkshops() {
   return workshops;
 }
+
+export function getWorkshop(id) {
+  return workshops.find((workshop) => workshop.id === id);
+}

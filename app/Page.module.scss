@@ -13,7 +13,6 @@
 .previewWorkshops {
   display: flex;
   justify-content: space-between;
-  list-style-type: none;
   flex-wrap: wrap;
   div div ul {
     display: flex;
@@ -23,7 +22,7 @@
     // flex-wrap: wrap;
   }
 
-  div div ul li {
+  div div ul a {
     background-color: var(--blue);
     display: flex;
     flex-direction: column;
@@ -37,7 +36,7 @@
     min-height: 15rem;
   }
 }
-.previewWorkshops div ul li button {
+.previewWorkshops div ul a button {
   background-color: white;
   color: blue;
   border: none;

@@ -36,15 +36,19 @@ export default function Home() {
       <section className={styles.previewWorkshops}>
         <div>
           <div>
-            These are the workshops
+            Upcoming Workshops
             <ul>
               {workshops.map((workshop) => {
                 return (
-                  <li key={`workshops-${workshop.id}`}>
+                  <a
+                    key={`workshops-${workshop.id}`}
+                    data-test-id={`product-${workshop.id}`}
+                  >
                     <div>
                       <div>{workshop.workshopName}</div>
                       <Image
                         src={`/images/${workshop.image}.webp`}
+                        data-test-id="product-image"
                         alt=""
                         width={200}
                         height={200}
@@ -53,7 +57,7 @@ export default function Home() {
                       <div>{workshop.date}</div>
                       <button>More Details</button>
                     </div>
-                  </li>
+                  </a>
                 );
               })}
             </ul>
