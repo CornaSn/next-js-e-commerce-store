@@ -1,5 +1,3 @@
-import GenerateButton from '../AddToCart';
-
 export const metadata = {
   title: 'Retreats',
   description:
@@ -12,7 +10,6 @@ export default function Workshops() {
   return (
     <div>
       <h1>Workshops</h1>
-      <GenerateButton />
     </div>
   );
 }

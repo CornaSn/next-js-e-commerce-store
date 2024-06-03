@@ -1,11 +1,27 @@
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getWorkshop } from '../../../database/workshops';
-import AddToCart from '../../AddToCart';
+// import RootNotFound from '../../not-found';
+import AddToCartForm from './AddToCartPage';
 
 export default function WorkshopId(props) {
   const singleWorkshop = getWorkshop(Number(props.params.workshopId));
 
-  console.log('props', singleWorkshop);
+  // //  Inserting a "not found" page
+  // if (!singleWorkshop) {
+  //   RootNotFound();
+  // }
+
+  const workshopsQuantityCookies = cookies().get('AddToCart');
+
+  const workshopsQuantity = JSON.parse(workshopsQuantityCookies.value);
+
+  const workshopQuantityToDisplay = workshopsQuantity.find(
+    (workshopQuantity) => {
+      return workshopQuantity.id === singleWorkshop.id;
+    },
+  );
+
   return (
     <div>
       <h1>{singleWorkshop.workshopName}</h1>
@@ -15,7 +31,7 @@ export default function WorkshopId(props) {
           <Image
             src={`/images/${singleWorkshop.image}.webp`}
             data-test-id="product-image"
-            alt=""
+            alt={singleWorkshop.workshopName}
             width={200}
             height={200}
           />
@@ -27,8 +43,13 @@ export default function WorkshopId(props) {
         <div>{singleWorkshop.time}</div>
         <div>{singleWorkshop.price}</div>
         <div>{singleWorkshop.description}</div>
+        <div>{singleWorkshop.workshopName}</div>
       </div>
-      <AddToCart />
+      <br />
+      <br />
+      <AddToCartForm />
+      <br />
+      <div>WorkshopQuantityToDisplay: {workshopQuantityToDisplay.quantity}</div>
     </div>
   );
 }
