@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getWorkshops } from '../database/workshops';
 import imageHome from '../public/images/imageHome.webp';
 import styles from './Page.module.scss';
@@ -36,30 +37,34 @@ export default function Home() {
       <section className={styles.previewWorkshops}>
         <div>
           <div>
-            Upcoming Workshops
-            <ul>
-              {workshops.map((workshop) => {
-                return (
-                  <a
-                    key={`workshops-${workshop.id}`}
-                    data-test-id={`product-${workshop.id}`}
-                  >
-                    <div>
-                      <div>{workshop.workshopName}</div>
+            <h2>Upcoming Workshops</h2>
+            <ul className={styles.workshopList}>
+              {workshops.map((workshop) => (
+                <li key={`workshops-${workshop.id}`}>
+                  <div className={styles.workshopItem}>
+                    <div className={styles.workshopName}>
+                      {workshop.workshopName}
+                    </div>
+                    <div className={styles.imageContainer}>
                       <Image
                         src={`/images/${workshop.image}.webp`}
                         data-test-id="product-image"
-                        alt=""
-                        width={200}
-                        height={200}
+                        alt={workshop.workshopName}
+                        layout="fill"
+                        objectFit="cover"
                       />
-                      <div>{workshop.location}</div>
-                      <div>{workshop.date}</div>
-                      <button>More Details</button>
                     </div>
-                  </a>
-                );
-              })}
+                    <div>{workshop.location}</div>
+                    <div>{workshop.date}</div>
+                    <Link
+                      href={`/workshops/${workshop.id}`}
+                      className={styles.moreDetailsButton}
+                    >
+                      More Details
+                    </Link>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

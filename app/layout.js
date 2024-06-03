@@ -59,7 +59,9 @@ export default function RootLayout({ children }) {
         <br />
         <br />
         <br />
-        <footer className={styles.footer}>Here comes the footer</footer>
+        <footer className={styles.footer}>
+          Created by &copy; Cornafy Yoga
+        </footer>
       </body>
     </html>
   );
