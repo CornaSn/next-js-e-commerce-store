@@ -23,63 +23,27 @@ export const metadata = {
   description:
     'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
 };
-
-const workshops = [
-  {
-    //   id: 1,
-    //   workshopName: 'Workshop 1',
-    //   location: 'Location 1',
-    //   date: '01.01.2025',
-    //   time: '2pm - 7pm',
-    //   price: '95,-',
-    //   image: 'childPose',
-    //   description: '',
-    // },
-    // {
-    //   id: 2,
-    //   workshopName: 'Workshop 2',
-    //   location: 'Location 2',
-    //   date: '02.02.2025',
-    //   time: '8am - 5pm',
-    //   price: '145,-',
-    //   image: 'mountainPose',
-    //   description: '',
-    // },
-    // {
-    //   id: 3,
-    //   workshopName: 'Workshop 3',
-    //   location: 'Location 3',
-    //   date: '03.03.2025',
-    //   time: '8am - 12pm',
-    //   price: '45,-',
-    //   image: 'vegetables',
-    //   description: '',
-    // },
-    // {
-    //   id: 4,
-    //   workshopName: 'Workshop 4',
-    //   location: 'Location 4',
-    //   date: '04.04.2025',
-    //   time: '1pm - 8pm',
-    //   price: '75,-',
-    //   image: 'meditationLake',
-    //   description: '',
-  },
-];
+const workshops = getWorkshops();
 
 export default function RootLayout({ children }) {
   const workshopsQuantityCookies = cookies().get('AddToCart');
+  console.log('workshopsQuantityCookies', workshopsQuantityCookies);
+
   const workshopsQuantity = JSON.parse(workshopsQuantityCookies.value);
+  console.log('workshopsQuantity', workshopsQuantity);
 
   const workshopsWithQuantity = workshops.map((workshop) => {
     const matchingWithWorkshopFromCookie = workshopsQuantity.find(
       (workshopObject) => workshop.id === workshopObject.id,
     );
+    console.log(
+      'matchingWithWorkshopFromCookie after map & find',
+      matchingWithWorkshopFromCookie,
+    );
     // ? Optional Chaining if matchingWithWorkshopFromCookie === undefined, return undefined, else return qunatity
     return { ...workshop, quantity: matchingWithWorkshopFromCookie?.quantity };
   });
-  console.log(workshopsWithQuantity);
-  console.log('workshops.quantity', workshops.quantity);
+  console.log('workshopsWithQuantity', workshopsWithQuantity.quantity);
 
   return (
     <html lang="en">
@@ -99,7 +63,15 @@ export default function RootLayout({ children }) {
                 <Link href="/about">About us</Link>
                 <Link href="/workshops">Workshops</Link>
                 <Link href="/contact">Contact</Link>
-                <li>Cart: {workshops.quantity}</li>
+                <li>
+                  {workshopsWithQuantity.map((workshop) => {
+                    return (
+                      <div key={`workshop-${workshop.id}`}>
+                        Cart: {workshop.quantity}
+                      </div>
+                    );
+                  })}
+                </li>
               </ul>
             </nav>
           </div>
