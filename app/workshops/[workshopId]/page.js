@@ -1,16 +1,16 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getWorkshop } from '../../../database/workshops';
-// import RootNotFound from '../../not-found';
-import AddToCartForm from './AddToCartPage';
+import { notFound } from '../../not-found.js';
+import SetQuantityForm from './SetQuantityForm';
 
 export default function WorkshopId(props) {
   const singleWorkshop = getWorkshop(Number(props.params.workshopId));
 
   // //  Inserting a "not found" page
-  // if (!singleWorkshop) {
-  //   RootNotFound();
-  // }
+  if (!singleWorkshop) {
+    notFound();
+  }
 
   const workshopsQuantityCookies = cookies().get('AddToCart');
 
@@ -47,7 +47,7 @@ export default function WorkshopId(props) {
       </div>
       <br />
       <br />
-      <AddToCartForm />
+      <SetQuantityForm />
       <br />
       <div>WorkshopQuantityToDisplay: {workshopQuantityToDisplay.quantity}</div>
     </div>

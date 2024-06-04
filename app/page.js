@@ -8,34 +8,46 @@ export default function Home() {
   const workshops = getWorkshops();
   return (
     <div>
-      <div className={styles.container}>
+      <section className={styles.introTop}>
+        <div className={styles.container}>
+          <div>
+            <h1>Welcome to Cornafy Yoga!</h1>
+            <p>
+              Discover the perfect blend of adventure and serenity with Cornafy
+              Yoga. Explore our diverse selection of Workshops.
+            </p>
+          </div>
+        </div>
         <div>
-          <h1>Welcome to Cornafy Yoga!</h1>
-          <p>
-            Discover the perfect blend of adventure and serenity with Cornafy
-            Yoga Workshops. Explore our diverse selection of Workshops.
-          </p>
           <Image
+            className={styles.bigPictureHome}
             src={imageHome}
             alt="Group Yoga Image"
             width={500}
             height={350}
           />
         </div>
-      </div>
+      </section>
+
       <section className={styles.intro}>
-        <h2>HEADING 2</h2>
-        <p>
-          Lorem ipsum semper habeo duo, ut vis. Aliquyam eu splendide. Ut mei
-          eteu nec antiopam corpora. Kasd pretium cetero qui arcu. Assentior ei
-          his usu invidunt kasd justo justo. Semper Ne eleifend Per ut Eam
-          graeci tincidunt. Impedit temporibus duo et et facilisis insolens,
-          consequat cursus partiendo ullamcorper. Vulputate facilisi Donec
-          Aliquam labore inimicus voluptua. Penatibus sea Vel amet. His
-        </p>
+        <div>
+          <h2>Embark on Your Unique Yoga Adventure</h2>
+          <p>
+            Immerse yourself in a unique yoga experience where movement and
+            creativity meet. Whether you want to master your balance in a
+            handstand workshop, challenge yourself with a climbing and yoga
+            retreat, or flow to the rhythm of an electro yoga session, we have
+            the perfect experience for you. Join a vibrant and supportive
+            community dedicated to helping you align your body and mind. Our
+            experienced instructors and varied programs cater to all levels,
+            from beginners to advanced practitioners. Take the first step
+            towards a new yoga journey and discover what Cornafy Yoga has to
+            offer.
+          </p>
+        </div>
       </section>
       <section className={styles.previewWorkshops}>
-        <div>
+        <div className={styles.containerUpcoming}>
           <div>
             <h2>Upcoming Workshops</h2>
             <ul className={styles.workshopList}>
@@ -54,8 +66,10 @@ export default function Home() {
                         objectFit="cover"
                       />
                     </div>
-                    <div>{workshop.location}</div>
-                    <div>{workshop.date}</div>
+                    <div className={styles.workshopLocation}>
+                      {workshop.location}
+                    </div>
+                    <div className={styles.workshopDate}>{workshop.date}</div>
                     <Link
                       href={`/workshops/${workshop.id}`}
                       className={styles.moreDetailsButton}

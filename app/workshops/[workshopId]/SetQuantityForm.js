@@ -3,13 +3,15 @@
 import { useState } from 'react';
 import { addQuantityToCart } from './actions';
 
-export default function AddToCartForm() {
+export default function SetQuantityForm() {
   const [quantity, setQuantity] = useState(0);
   return (
     <form>
       <label>
         Quantity:
         <select
+          data-test-id="product-quantity"
+          min="1"
           value={quantity}
           onChange={(event) => setQuantity(event.currentTarget.value)}
         >
@@ -20,7 +22,10 @@ export default function AddToCartForm() {
           <option value={4}>4</option>
           <option value={5}>5</option>
         </select>
-        <button formAction={async () => await addQuantityToCart(quantity)}>
+        <button
+          data-test-id="product-add-to-cart"
+          formAction={async () => await addQuantityToCart(quantity)}
+        >
           Add to Cart
         </button>
       </label>

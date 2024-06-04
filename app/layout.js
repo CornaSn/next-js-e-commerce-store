@@ -64,6 +64,7 @@ export default function RootLayout({ children }) {
                 <Link href="/workshops">Workshops</Link>
                 <Link href="/contact">Contact</Link>
                 <li>
+                  {/* TO DO --- Fix code, right now all 4 workshops are displayed */}
                   {workshopsWithQuantity.map((workshop) => {
                     return (
                       <div key={`workshop-${workshop.id}`}>
