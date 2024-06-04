@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getWorkshops } from '../../database/workshops.js';
+import styles from './Page.module.scss';
 
 export const metadata = {
   title: 'Retreats',
@@ -11,34 +12,42 @@ export const metadata = {
 export default function Workshops() {
   const workshops = getWorkshops();
   return (
-    <div>
-      <h1>Upcoming Workshops</h1>
-      <br />
-      <section>
+    <section className={styles.previewWorkshops}>
+      <div className={styles.containerUpcoming}>
         <div>
-          <ul>
+          <h2>Upcoming Workshops</h2>
+          <ul className={styles.workshopList}>
             {workshops.map((workshop) => (
               <li key={`workshops-${workshop.id}`}>
-                <div>
-                  <div>{workshop.workshopName}</div>
-                  <div>
+                <div className={styles.workshopItem}>
+                  <div className={styles.workshopName}>
+                    {workshop.workshopName}
+                  </div>
+                  <div className={styles.imageContainer}>
                     <Image
                       src={`/images/${workshop.image}.webp`}
                       data-test-id="product-image"
                       alt={workshop.workshopName}
-                      height={200}
-                      width={200}
+                      layout="fill"
+                      objectFit="cover"
                     />
                   </div>
-                  <div>{workshop.location}</div>
-                  <div>{workshop.date}</div>
-                  <Link href={`/workshops/${workshop.id}`}>More Details</Link>
+                  <div className={styles.workshopLocation}>
+                    {workshop.location}
+                  </div>
+                  <div className={styles.workshopDate}>{workshop.date}</div>
+                  <Link
+                    href={`/workshops/${workshop.id}`}
+                    className={styles.moreDetailsButton}
+                  >
+                    More Details
+                  </Link>
                 </div>
               </li>
             ))}
           </ul>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

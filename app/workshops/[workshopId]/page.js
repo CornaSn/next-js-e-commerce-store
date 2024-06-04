@@ -1,20 +1,20 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getWorkshop } from '../../../database/workshops';
-import { notFound } from '../../not-found.js';
+// import { notFound } from '../../not-found.js';
 import SetQuantityForm from './SetQuantityForm';
 
 export default function WorkshopId(props) {
   const singleWorkshop = getWorkshop(Number(props.params.workshopId));
 
-  // //  Inserting a "not found" page
-  if (!singleWorkshop) {
-    notFound();
-  }
+  // // //  Inserting a "not found" page
+  // if (!singleWorkshop) {
+  //   notFound();
+  // }
 
-  const workshopsQuantityCookies = cookies().get('AddToCart');
+  const workshopsQuantityCookies = cookies().get('AddToCart')?.value;
 
-  const workshopsQuantity = JSON.parse(workshopsQuantityCookies.value);
+  const workshopsQuantity = JSON.parse(workshopsQuantityCookies);
 
   const workshopQuantityToDisplay = workshopsQuantity.find(
     (workshopQuantity) => {
@@ -47,9 +47,11 @@ export default function WorkshopId(props) {
       </div>
       <br />
       <br />
-      <SetQuantityForm />
+      <SetQuantityForm singleWorkshopId={singleWorkshop.id} />
       <br />
-      <div>WorkshopQuantityToDisplay: {workshopQuantityToDisplay.quantity}</div>
+      <div>
+        WorkshopQuantityToDisplay: {workshopQuantityToDisplay?.quantity}
+      </div>
     </div>
   );
 }

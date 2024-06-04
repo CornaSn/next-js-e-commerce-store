@@ -2,12 +2,33 @@
 
 import { cookies } from 'next/headers.js';
 
-export async function addQuantityToCart(quantity) {
-  await cookies().set(
-    'AddToCart',
-    JSON.stringify([
-      { id: 1, quantity: quantity },
-      { id: 2, quantity: quantity },
-    ]),
-  );
+// Case A - Cookie is undefined
+// Case B - Cookie exists, we need to add a new comment
+// Case C - Cookie exists  with a comment for a specific workshop ID.
+
+export async function addQuantityToCart(singleWorkshopId, quantity) {
+  // 1. Get current cookie
+  const workshopsQuantityCookie = cookies().get('AddToCart');
+
+  // 2. Parse the cookie value
+  const workshopQuantity = !workshopsQuantityCookie
+    ? // Case A - Cookie is undefined
+      []
+    : JSON.parse(workshopsQuantityCookie.value) || []; // Empty Array in case the JSON.parse is defect or has an error
+
+  // 3. Edit the cookie value | Search inside Cookie if there is an ID matching the Cookie ID
+  const workshopToUpdate = workshopQuantity.find((workshopQuantity) => {
+    return workshopQuantity.id === singleWorkshopId;
+  });
+
+  // Case B - Cookie exists, we need to add a new comment
+  if (!workshopToUpdate) {
+    workshopQuantity.push({ id: singleWorkshopId, quantity: quantity });
+  } else {
+    // Case C - Cookie exists  with a comment for a specific workshop ID.
+    workshopToUpdate.quantity = quantity;
+  }
+  // 4. We override the cookie
+
+  await cookies().set('AddToCart', JSON.stringify(workshopQuantity));
 }

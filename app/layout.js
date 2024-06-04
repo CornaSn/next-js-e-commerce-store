@@ -27,28 +27,28 @@ const workshops = getWorkshops();
 
 export default function RootLayout({ children }) {
   const workshopsQuantityCookies = cookies().get('AddToCart');
-  console.log('workshopsQuantityCookies', workshopsQuantityCookies);
+  // console.log('workshopsQuantityCookies', workshopsQuantityCookies);
 
   const workshopsQuantity = JSON.parse(workshopsQuantityCookies.value);
-  console.log('workshopsQuantity', workshopsQuantity);
+  // console.log('workshopsQuantity', workshopsQuantity);
 
   const workshopsWithQuantity = workshops.map((workshop) => {
     const matchingWithWorkshopFromCookie = workshopsQuantity.find(
       (workshopObject) => workshop.id === workshopObject.id,
     );
-    console.log(
-      'matchingWithWorkshopFromCookie after map & find',
-      matchingWithWorkshopFromCookie,
-    );
+    // console.log(
+    //   'matchingWithWorkshopFromCookie after map & find',
+    //   matchingWithWorkshopFromCookie,
+    // );
+
     // ? Optional Chaining if matchingWithWorkshopFromCookie === undefined, return undefined, else return qunatity
     return { ...workshop, quantity: matchingWithWorkshopFromCookie?.quantity };
   });
-  console.log('workshopsWithQuantity', workshopsWithQuantity.quantity);
+  // console.log('workshopsWithQuantity', workshopsWithQuantity.quantity);
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`} />
-      <body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <header className={styles.header}>
           <div className={styles.navigation}>
             <nav>
@@ -68,7 +68,7 @@ export default function RootLayout({ children }) {
                   {workshopsWithQuantity.map((workshop) => {
                     return (
                       <div key={`workshop-${workshop.id}`}>
-                        Cart: {workshop.quantity}
+                        <Link href="/cart">Cart: {workshop.quantity}</Link>
                       </div>
                     );
                   })}
