@@ -1,3 +1,5 @@
+import styles from './Checkout.module.scss';
+
 export const metadata = {
   title: 'Check-Out',
   description:

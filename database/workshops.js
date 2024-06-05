@@ -37,7 +37,7 @@ const workshops = [
 
   {
     id: 4,
-    workshopName: 'Prenatal Yoga Workshop',
+    workshopName: 'Prenatal Yoga',
     location: 'Vienna',
     date: '17. September 2024',
     time: '10am - 1pm',

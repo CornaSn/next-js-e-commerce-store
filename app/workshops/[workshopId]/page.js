@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
-import { getWorkshop } from '../../../database/workshops';
+import { getWorkshop, getWorkshops } from '../../../database/workshops';
 // import { notFound } from '../../not-found.js';
 import SetQuantityForm from './SetQuantityForm';
 import styles from './WorkshopPage.module.scss';

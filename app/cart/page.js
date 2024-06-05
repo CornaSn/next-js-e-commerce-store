@@ -1,3 +1,5 @@
+import styles from './Cart.module.scss';
+
 export const metadata = {
   title: 'Cart',
   description:

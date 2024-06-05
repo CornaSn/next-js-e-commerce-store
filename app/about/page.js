@@ -1,3 +1,5 @@
+import styles from './Aboutus.module.scss';
+
 export const metadata = {
   title: 'About',
   description:
