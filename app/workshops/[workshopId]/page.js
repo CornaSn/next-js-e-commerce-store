@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { getWorkshop } from '../../../database/workshops';
 // import { notFound } from '../../not-found.js';
 import SetQuantityForm from './SetQuantityForm';
+import styles from './WorkshopPage.module.scss';
 
 export default function WorkshopId(props) {
   const singleWorkshop = getWorkshop(Number(props.params.workshopId));
@@ -23,34 +24,47 @@ export default function WorkshopId(props) {
   );
 
   return (
-    <div>
-      <h1>{singleWorkshop.workshopName}</h1>
-
-      <div>
-        <div>
+    <div className={styles.sectionContainer}>
+      <h1 className={styles.singleWorkshopHeading}>
+        {singleWorkshop.workshopName}
+      </h1>
+      <div className={styles.contentBox}>
+        <div className={styles.contentImage}>
           <Image
             src={`/images/${singleWorkshop.image}.webp`}
             data-test-id="product-image"
             alt={singleWorkshop.workshopName}
-            width={200}
-            height={200}
+            width={500}
+            height={650}
           />
         </div>
-      </div>
-      <div>
-        <div>{singleWorkshop.location}</div>
-        <div>{singleWorkshop.date}</div>
-        <div>{singleWorkshop.time}</div>
-        <div>{singleWorkshop.price}</div>
-        <div>{singleWorkshop.description}</div>
-        <div>{singleWorkshop.workshopName}</div>
-      </div>
-      <br />
-      <br />
-      <SetQuantityForm singleWorkshopId={singleWorkshop.id} />
-      <br />
-      <div>
-        WorkshopQuantityToDisplay: {workshopQuantityToDisplay?.quantity}
+        <div className={styles.workshopInfo}>
+          <div className={styles.workshopDescription}>
+            <div>{singleWorkshop.description}</div>
+          </div>
+          <div>
+            <div className={styles.workshopDetails}>
+              <div>
+                <strong>Location:</strong> {singleWorkshop.location}
+              </div>
+              <div>
+                <strong>Date:</strong> {singleWorkshop.date}
+              </div>
+              <div>
+                <strong>Time:</strong> {singleWorkshop.time}
+              </div>
+              <div>
+                <strong data-test-id="product- price">Price: </strong>
+                {singleWorkshop.price}
+              </div>
+            </div>
+          </div>
+
+          <br />
+          <br />
+          <br />
+          <SetQuantityForm singleWorkshopId={singleWorkshop.id} />
+        </div>
       </div>
     </div>
   );

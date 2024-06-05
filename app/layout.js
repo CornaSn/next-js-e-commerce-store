@@ -7,16 +7,16 @@ import { getWorkshops } from '../database/workshops';
 import Logo from '../public/images/logo.webp';
 import styles from './Layout.module.scss';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-});
+// const geistSans = localFont({
+//   src: './fonts/GeistVF.woff',
+//   variable: '--font-geist-sans',
+//   weight: '100 900',
+// });
+// const geistMono = localFont({
+//   src: './fonts/GeistMonoVF.woff',
+//   variable: '--font-geist-mono',
+//   weight: '100 900',
+// });
 
 export const metadata = {
   title: { default: 'Home | Cornafy Yoga', template: '%s | Cornafy Yoga' },
@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body /*className={`${geistSans.variable} ${geistMono.variable}`}*/>
         <header className={styles.header}>
           <div className={styles.navigation}>
             <nav>
@@ -90,9 +90,9 @@ export default function RootLayout({ children }) {
         <br />
         <br />
         <br />
-        <footer className={styles.footer}>
+        {/* <footer className={styles.footer}>
           Created by &copy; Cornafy Yoga
-        </footer>
+        </footer> */}
       </body>
     </html>
   );
