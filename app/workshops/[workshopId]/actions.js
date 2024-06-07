@@ -1,6 +1,7 @@
 'use server';
 
 import { cookies } from 'next/headers.js';
+import { getCookie } from '../../../util/cookies';
 
 // Case A - Cookie is undefined
 // Case B - Cookie exists, we need to add a new comment
@@ -8,13 +9,13 @@ import { cookies } from 'next/headers.js';
 
 export async function addQuantityToCart(singleWorkshopId, quantity) {
   // 1. Get current cookie
-  const workshopsQuantityCookie = cookies().get('AddToCart');
+  const workshopsQuantityCookie = getCookie('AddToCart');
 
   // 2. Parse the cookie value
   const workshopQuantity = !workshopsQuantityCookie
     ? // Case A - Cookie is undefined
       []
-    : JSON.parse(workshopsQuantityCookie.value) || []; // Empty Array in case the JSON.parse is defect or has an error
+    : JSON.parse(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
 
   // 3. Edit the cookie value | Search inside Cookie if there is an ID matching the Cookie ID
   const workshopToUpdate = workshopQuantity.find((workshopQuantity) => {

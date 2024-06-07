@@ -3,8 +3,10 @@ import localFont from 'next/font/local';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
+import { IoCart, IoHome } from 'react-icons/io5';
 import { getWorkshops } from '../database/workshops';
 import Logo from '../public/images/logo.webp';
+import { getCookie } from '../util/cookies.js';
 import { createCookie } from './cookie/actions';
 import SetCookieForm from './cookie/SetCookieForm';
 import styles from './Layout.module.scss';
@@ -17,22 +19,16 @@ export const metadata = {
 const workshops = getWorkshops();
 
 export default function RootLayout({ children }) {
-  const workshopsQuantityCookie = cookies().get('AddToCart');
-  console.log('workshopsQuantityCookies1', workshopsQuantityCookie);
+  const workshopsQuantityCookie = getCookie('AddToCart');
 
   const workshopQuantity = !workshopsQuantityCookie
     ? // Case A - Cookie is undefined
       []
-    : JSON.parse(workshopsQuantityCookie.value) || []; // Empty Array in case the JSON.parse is defect or has an error
-  console.log('workshopsQuantity2', workshopQuantity);
+    : JSON.parse(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
 
   const workshopsWithQuantity = workshops.map((workshop) => {
     const matchingWithWorkshopFromCookie = workshopQuantity.find(
       (workshopObject) => workshop.id === workshopObject.id,
-    );
-    console.log(
-      'matchingWithWorkshopFromCookie3',
-      matchingWithWorkshopFromCookie,
     );
 
     let value = 0;
@@ -57,8 +53,6 @@ export default function RootLayout({ children }) {
     return totalCart.quantity;
   }
 
-  console.log(SumCart(workshopsWithQuantity));
-
   return (
     <html lang="en">
       <body /*className={`${geistSans.variable} ${geistMono.variable}`}*/>
@@ -72,11 +66,18 @@ export default function RootLayout({ children }) {
                   width={150}
                   height={150}
                 />
-                <Link href="/">Home</Link>
+                <Link href="/">
+                  <IoHome className={styles.badge} />
+                </Link>
                 <Link href="/about">About us</Link>
                 <Link href="/workshops">Workshops</Link>
                 <Link href="/contact">Contact</Link>
-                <Link href="/cart">Cart: {SumCart(workshopsWithQuantity)}</Link>
+                <Link href="/cart">
+                  <IoCart className={styles.badge} />
+                </Link>
+                <li className={styles.badgeNumber}>
+                  {SumCart(workshopsWithQuantity)}
+                </li>
               </ul>
             </nav>
           </div>

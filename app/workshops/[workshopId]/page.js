@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getWorkshop, getWorkshops } from '../../../database/workshops';
+import { getCookie } from '../../../util/cookies.js';
 // import { notFound } from '../../not-found.js';
 import SetQuantityForm from './SetQuantityForm';
 import styles from './WorkshopPage.module.scss';
@@ -13,7 +14,7 @@ export default function WorkshopId(props) {
   //   notFound();
   // }
 
-  const workshopsQuantityCookies = cookies().get('AddToCart')?.value;
+  const workshopsQuantityCookies = getCookie('AddtoCart');
 
   const workshopQuantity = !workshopsQuantityCookies
     ? // Case A - Cookie is undefined
