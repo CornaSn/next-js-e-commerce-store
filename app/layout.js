@@ -46,6 +46,17 @@ export default function RootLayout({ children }) {
   });
   // console.log('workshopsWithQuantity', workshopsWithQuantity.quantity);
 
+  function SumCart(cookieWorkshopObject) {
+    const totalCart = cookieWorkshopObject.reduce(function (quantity, sum) {
+      return {
+        quantity: Number(quantity.quantity) + Number(sum.quantity),
+      };
+    });
+    return totalCart.quantity;
+  }
+
+  console.log(SumCart(workshopsWithQuantity));
+
   return (
     <html lang="en">
       <body /*className={`${geistSans.variable} ${geistMono.variable}`}*/>
@@ -63,16 +74,7 @@ export default function RootLayout({ children }) {
                 <Link href="/about">About us</Link>
                 <Link href="/workshops">Workshops</Link>
                 <Link href="/contact">Contact</Link>
-                <li>
-                  {/* TO DO --- Fix code, right now all 4 workshops are displayed */}
-                  {workshopsWithQuantity.map((workshop) => {
-                    return (
-                      <div key={`workshop-${workshop.id}`}>
-                        <Link href="/cart">Cart: {workshop.quantity}</Link>
-                      </div>
-                    );
-                  })}
-                </li>
+                <Link href="/cart">Cart: {SumCart(workshopsWithQuantity)}</Link>
               </ul>
             </nav>
           </div>
