@@ -2,14 +2,16 @@
 
 import { useState } from 'react';
 import { addQuantityToCart } from './actions';
+import styles from './SetQuantity.module.scss';
 
 export default function SetQuantityForm(props) {
   const [quantity, setQuantity] = useState('');
   return (
     <form>
       <label>
-        Quantity:
+        <a className={styles.quantity}> Quantity:</a>
         <select
+          className={styles.quantityOption}
           data-test-id="product-quantity"
           min="1"
           value={quantity}
@@ -23,6 +25,7 @@ export default function SetQuantityForm(props) {
           <option value={5}>5</option>
         </select>
         <button
+          className={styles.buttonQuantity}
           // className={styles.buttonAddToCart}
           data-test-id="product-add-to-cart"
           formAction={async () =>

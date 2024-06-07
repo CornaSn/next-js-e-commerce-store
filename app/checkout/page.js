@@ -1,4 +1,5 @@
 import styles from './Checkout.module.scss';
+import SetCheckOutForm from './SetCheckoutForm';
 
 export const metadata = {
   title: 'Check-Out',
@@ -7,5 +8,19 @@ export const metadata = {
 };
 
 export default function CheckOut() {
-  return <h1>Checkout</h1>;
+  return (
+    <>
+      <div>PLACEHOLDER FOR WORKSHOPS WHICH HAVE BEEN ADDED TO THE CART </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <div>
+        <SetCheckOutForm />
+      </div>
+    </>
+  );
 }
