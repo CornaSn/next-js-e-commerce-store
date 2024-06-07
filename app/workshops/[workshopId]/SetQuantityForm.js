@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { addQuantityToCart } from './actions';
-import styles from './WorkshopPage.module.scss';
 
 export default function SetQuantityForm(props) {
   const [quantity, setQuantity] = useState('');
@@ -24,7 +23,7 @@ export default function SetQuantityForm(props) {
           <option value={5}>5</option>
         </select>
         <button
-          className={styles.buttonAddToCart}
+          // className={styles.buttonAddToCart}
           data-test-id="product-add-to-cart"
           formAction={async () =>
             await addQuantityToCart(props.singleWorkshopId, quantity)

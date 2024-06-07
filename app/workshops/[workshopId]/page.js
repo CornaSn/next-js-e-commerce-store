@@ -63,7 +63,10 @@ export default function WorkshopId(props) {
           <br />
           <br />
           <br />
-          <SetQuantityForm singleWorkshopId={singleWorkshop.id} />
+          <SetQuantityForm
+            singleWorkshopId={singleWorkshop.id}
+            className={styles.quantityButton}
+          />
         </div>
       </div>
     </div>

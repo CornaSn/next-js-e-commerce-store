@@ -27,10 +27,12 @@
 
 .previewWorkshops .workshopItem {
   background-color: var(--blue);
+  opacity: 0.9;
   color: var(--white);
   padding: 1rem;
   margin: 1rem;
   width: 20rem;
+  border-radius: 1rem;
   box-sizing: border-box;
   flex-grow: 1;
   flex-basis: auto;
