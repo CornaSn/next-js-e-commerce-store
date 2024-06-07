@@ -35,10 +35,16 @@ export default function RootLayout({ children }) {
       matchingWithWorkshopFromCookie,
     );
 
+    let value = 0;
+    if (typeof matchingWithWorkshopFromCookie === 'undefined') {
+      value = 0;
+    } else {
+      value = matchingWithWorkshopFromCookie.quantity;
+    }
     // ? Optional Chaining if matchingWithWorkshopFromCookie === undefined, return undefined, else return qunatity
     return {
       ...workshop,
-      quantity: Number(matchingWithWorkshopFromCookie?.quantity),
+      quantity: Number(value),
     };
   });
 
