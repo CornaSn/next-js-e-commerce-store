@@ -15,9 +15,12 @@ export default function WorkshopId(props) {
 
   const workshopsQuantityCookies = cookies().get('AddToCart')?.value;
 
-  const workshopsQuantity = JSON.parse(workshopsQuantityCookies);
+  const workshopQuantity = !workshopsQuantityCookies
+    ? // Case A - Cookie is undefined
+      []
+    : JSON.parse(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
 
-  const workshopQuantityToDisplay = workshopsQuantity.find(
+  const workshopQuantityToDisplay = workshopQuantity.find(
     (workshopQuantity) => {
       return workshopQuantity.id === singleWorkshop.id;
     },

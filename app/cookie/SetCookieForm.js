@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { createCookie } from './actions.js';
 
 export default function SetCookieForm() {
-  const [cookieValue, setCookieValue] = useState();
+  const [cookieValue, setCookieValue] = useState(0);
   return (
     <form>
       <input

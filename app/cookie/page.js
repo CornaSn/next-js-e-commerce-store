@@ -2,7 +2,7 @@ import { cookies } from 'next/headers';
 import SetCookieForm from './SetCookieForm';
 
 export default function SetCookiePage() {
-  const cookieValue = cookies().get('AlexCookie');
+  const cookieValue = cookies().get('AddToCart');
   console.log(cookieValue);
 
   return (

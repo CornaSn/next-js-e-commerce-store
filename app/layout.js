@@ -5,18 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getWorkshops } from '../database/workshops';
 import Logo from '../public/images/logo.webp';
+import { createCookie } from './cookie/actions';
+import SetCookieForm from './cookie/SetCookieForm';
 import styles from './Layout.module.scss';
-
-// const geistSans = localFont({
-//   src: './fonts/GeistVF.woff',
-//   variable: '--font-geist-sans',
-//   weight: '100 900',
-// });
-// const geistMono = localFont({
-//   src: './fonts/GeistMonoVF.woff',
-//   variable: '--font-geist-mono',
-//   weight: '100 900',
-// });
 
 export const metadata = {
   title: { default: 'Home | Cornafy Yoga', template: '%s | Cornafy Yoga' },
@@ -26,30 +17,35 @@ export const metadata = {
 const workshops = getWorkshops();
 
 export default function RootLayout({ children }) {
-  const workshopsQuantityCookies = cookies().get('AddToCart');
-  // console.log('workshopsQuantityCookies', workshopsQuantityCookies);
+  const workshopsQuantityCookie = cookies().get('AddToCart');
+  console.log('workshopsQuantityCookies1', workshopsQuantityCookie);
 
-  const workshopsQuantity = JSON.parse(workshopsQuantityCookies.value);
-  // console.log('workshopsQuantity', workshopsQuantity);
+  const workshopQuantity = !workshopsQuantityCookie
+    ? // Case A - Cookie is undefined
+      []
+    : JSON.parse(workshopsQuantityCookie.value) || []; // Empty Array in case the JSON.parse is defect or has an error
+  console.log('workshopsQuantity2', workshopQuantity);
 
   const workshopsWithQuantity = workshops.map((workshop) => {
-    const matchingWithWorkshopFromCookie = workshopsQuantity.find(
+    const matchingWithWorkshopFromCookie = workshopQuantity.find(
       (workshopObject) => workshop.id === workshopObject.id,
     );
-    // console.log(
-    //   'matchingWithWorkshopFromCookie after map & find',
-    //   matchingWithWorkshopFromCookie,
-    // );
+    console.log(
+      'matchingWithWorkshopFromCookie3',
+      matchingWithWorkshopFromCookie,
+    );
 
     // ? Optional Chaining if matchingWithWorkshopFromCookie === undefined, return undefined, else return qunatity
-    return { ...workshop, quantity: matchingWithWorkshopFromCookie?.quantity };
+    return {
+      ...workshop,
+      quantity: Number(matchingWithWorkshopFromCookie?.quantity),
+    };
   });
-  // console.log('workshopsWithQuantity', workshopsWithQuantity.quantity);
 
   function SumCart(cookieWorkshopObject) {
     const totalCart = cookieWorkshopObject.reduce(function (quantity, sum) {
       return {
-        quantity: Number(quantity.quantity) + Number(sum.quantity),
+        quantity: quantity.quantity + sum.quantity,
       };
     });
     return totalCart.quantity;
