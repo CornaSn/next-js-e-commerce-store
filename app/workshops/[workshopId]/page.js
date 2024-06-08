@@ -1,6 +1,5 @@
-import { cookies } from 'next/headers';
 import Image from 'next/image';
-import { getWorkshop, getWorkshops } from '../../../database/workshops';
+import { getWorkshop } from '../../../database/workshops';
 import { getCookie } from '../../../util/cookies.js';
 import { parseJson } from '../../../util/json.js';
 // import { notFound } from '../../not-found.js';
@@ -16,21 +15,22 @@ export default function WorkshopId(props) {
   // }
 
   const workshopsQuantityCookies = getCookie('AddtoCart');
-  console.log(typeof workshopsQuantityCookies);
+  // console.log(typeof workshopsQuantityCookies);
 
   const workshopQuantity = !workshopsQuantityCookies
     ? // Case A - Cookie is undefined
       []
-    : parseJson(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
+    : JSON.parse(workshopsQuantityCookies) || [];
+  //: parseJson(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
 
-  console.log('workshopQuantity', workshopQuantity);
+  // console.log('workshopQuantity', workshopQuantity);
 
   const workshopQuantityToDisplay = workshopQuantity.find(
     (workshopQuantity) => {
       return workshopQuantity.id === singleWorkshop.id;
     },
   );
-  console.log('workshopQuantityToDisplay', workshopQuantityToDisplay);
+  // console.log('workshopQuantityToDisplay', workshopQuantityToDisplay);
 
   return (
     <div className={styles.sectionContainer}>
@@ -63,8 +63,8 @@ export default function WorkshopId(props) {
                 <strong>Time:</strong> {singleWorkshop.time}
               </div>
               <div>
-                <strong data-test-id="product- price">Price: </strong>
-                {singleWorkshop.price}
+                <strong data-test-id="product- price">Price: €</strong>
+                {singleWorkshop.price},-
               </div>
             </div>
           </div>

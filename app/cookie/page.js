@@ -1,10 +1,9 @@
-import { cookies } from 'next/headers';
 import { getCookie } from '../../util/cookies';
 import SetCookieForm from './SetCookieForm';
 
 export default function SetCookiePage() {
   const cookieValue = getCookie('AddToCart');
-  console.log(cookieValue);
+  // console.log(cookieValue);
 
   return (
     <>

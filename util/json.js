@@ -1,10 +1,13 @@
 import { sjson } from 'secure-json-parse';
 
 export function parseJson(json) {
-  if (!json) return undefined;
+  if (!json) {
+    return undefined;
+  }
   try {
     return sjson.parse(json);
-  } catch {
+  } catch (e) {
+    console.log(e);
     return undefined;
   }
 }

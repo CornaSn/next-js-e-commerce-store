@@ -1,15 +1,11 @@
 import './globals.scss';
-import localFont from 'next/font/local';
-import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoCart, IoHome } from 'react-icons/io5';
 import { getWorkshops } from '../database/workshops';
 import Logo from '../public/images/logo.webp';
 import { getCookie } from '../util/cookies.js';
-import { parseJson } from '../util/json.js';
-import { createCookie } from './cookie/actions';
-import SetCookieForm from './cookie/SetCookieForm';
+// import { parseJson } from '../util/json.js';
 import styles from './Layout.module.scss';
 
 export const metadata = {
@@ -25,9 +21,10 @@ export default function RootLayout({ children }) {
   const workshopQuantity = !workshopsQuantityCookie
     ? // Case A - Cookie is undefined
       []
-    : parseJson(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
+    : JSON.parse(workshopsQuantityCookie) || [];
+  // : parseJson(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
 
-  console.log('workshopquantity1', workshopQuantity);
+  // console.log('workshopQuantity', workshopQuantity);
 
   const workshopsWithQuantity = workshops.map((workshop) => {
     const matchingWithWorkshopFromCookie = workshopQuantity.find(
