@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getWorkshops } from '../../database/workshops';
 import { getCookie } from '../../util/cookies';
+import { WorkshopsInCart } from '../../util/workshopsInCart';
 import styles from './Cart.module.scss';
 
 export const metadata = {
@@ -11,31 +12,8 @@ export const metadata = {
 };
 
 export default function CartPage() {
-  const workshops = getWorkshops();
-  const workshopsQuantityCookie = getCookie('AddToCart');
-
-  const workshopQuantity = !workshopsQuantityCookie
-    ? []
-    : JSON.parse(workshopsQuantityCookie) || [];
-
-  // Check which workshops are in cookies
-  const workshopsWithQuantity = workshops.map((workshop) => {
-    const matchingWithWorkshopFromCookie = workshopQuantity.find(
-      (workshopObject) => workshop.id === workshopObject.id,
-    );
-    // console.log(
-    //   'matchingWithWorkshopFromCookie',
-    //   matchingWithWorkshopFromCookie,
-    // );
-    //  ? Optional Changing
-    return { ...workshop, quantity: matchingWithWorkshopFromCookie?.quantity };
-  });
-
-  // Filter only the workshops which are not undefined
-  const workshopsInCart = workshopsWithQuantity.filter(
-    (workshop) => workshop.quantity,
-  );
-  // console.log('Workshops in Cart with Quantity:', workshopsInCart);
+  // Insert WorkshopsInCart function from util folder
+  const workshopsInCart = WorkshopsInCart();
 
   // Calculate the total Sum of all Workshops
   const initialValue = 0;
