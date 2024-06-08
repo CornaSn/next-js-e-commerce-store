@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getWorkshops } from '../../database/workshops';
 import { getCookie } from '../../util/cookies';
 import styles from './Cart.module.scss';
@@ -82,8 +83,9 @@ export default function CartPage() {
         })}
 
         <div className={styles.totalSum}>Total Sum: {`€ ${totalSum},-`} </div>
-
-        <button className={styles.checkoutButton}>Checkout</button>
+        <Link href="/checkout" className={styles.checkOutButton}>
+          Checkout
+        </Link>
       </div>
     </div>
   );

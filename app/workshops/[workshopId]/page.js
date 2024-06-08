@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getWorkshop } from '../../../database/workshops';
 import { getCookie } from '../../../util/cookies.js';
 import { parseJson } from '../../../util/json.js';
@@ -72,10 +73,15 @@ export default function WorkshopId(props) {
           <br />
           <br />
           <br />
-          <SetQuantityForm
-            singleWorkshopId={singleWorkshop.id}
-            className={styles.quantityButton}
-          />
+          <div className={styles.addViewCart}>
+            <SetQuantityForm
+              singleWorkshopId={singleWorkshop.id}
+              className={styles.quantityButton}
+            />
+            <Link href="/cart" className={styles.viewCart}>
+              View Cart
+            </Link>
+          </div>
         </div>
       </div>
     </div>

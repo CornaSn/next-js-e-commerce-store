@@ -55,3 +55,25 @@
   word-spacing: 0.2rem;
   margin-bottom: 3rem;
 }
+
+.addViewCart {
+  display: flex;
+  flex-direction: column;
+}
+.viewCart {
+  background-color: var(--cream);
+  border: 1px solid var(--grey);
+  align-self: flex-end;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: right;
+}
+
+.viewCart:hover {
+  background-color: var(--blue);
+  color: var(--white);
+}

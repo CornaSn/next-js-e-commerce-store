@@ -10,17 +10,17 @@ export const metadata = {
 export default function CheckOut() {
   return (
     <div className={styles.checkOutContainer}>
-        <div>PLACEHOLDER FOR WORKSHOPS WHICH HAVE BEEN ADDED TO THE CART </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+      <div>PLACEHOLDER FOR WORKSHOPS WHICH HAVE BEEN ADDED TO THE CART </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
-        <div>
-          <SetCheckOutForm />
-        </div>
+      <div>
+        <SetCheckOutForm />
       </div>
+    </div>
   );
 }
