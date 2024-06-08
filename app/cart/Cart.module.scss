@@ -1,0 +1,81 @@
+.containerCart {
+  padding: 3rem 8rem;
+  background-color: var(--cream);
+
+  h1 {
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+}
+
+.containerCartWorkshops {
+  border: 2px solid var(--blue);
+  border-radius: 5px;
+}
+
+.containerSingleWorkshop {
+  display: flex;
+  margin: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.cartText {
+  margin: 0rem 3rem;
+  width: 80%;
+  h2 {
+    color: var(--blue);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    line-height: 2rem;
+    font-weight: 600;
+    word-spacing: 0.2rem;
+    margin-bottom: 4rem;
+  }
+  div {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    word-spacing: 0.2rem;
+    line-height: 2rem;
+  }
+  .totalPriceWorkshop {
+    text-align: right;
+  }
+}
+
+.contentImage {
+  position: relative;
+
+  .contentImage img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}
+
+.totalSum {
+  border-top: 3px solid var(--black);
+  margin: 1rem;
+  padding: 3rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  word-spacing: 0.2rem;
+}
+
+.checkoutButton {
+  align-self: right;
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  padding: 2rem 4rem;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  margin-left: 80%;
+  margin-bottom: 3rem;
+}

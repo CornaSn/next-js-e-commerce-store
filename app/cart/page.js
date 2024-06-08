@@ -1,7 +1,7 @@
+import Image from 'next/image';
 import { getWorkshops } from '../../database/workshops';
 import { getCookie } from '../../util/cookies';
-
-// import styles from './Cart.module.scss';
+import styles from './Cart.module.scss';
 
 export const metadata = {
   title: 'Cart',
@@ -36,6 +36,7 @@ export default function CartPage() {
   );
   // console.log('Workshops in Cart with Quantity:', workshopsInCart);
 
+  // Calculate the total Sum of all Workshops
   const initialValue = 0;
   const totalSum = workshopsInCart.reduce(
     (accumulator, workshop) =>
@@ -45,24 +46,45 @@ export default function CartPage() {
   // console.log('totalSum:', totalSum);
 
   return (
-    <div>
+    <div className={styles.containerCart}>
       <h1>Cart</h1>
-      {workshopsInCart.map((workshop) => {
-        const workshopTotalPrice = workshop.quantity * workshop.price;
+      <div className={styles.containerCartWorkshops}>
+        {workshopsInCart.map((workshop) => {
+          // Calculate the total Price of one workshop
+          const workshopTotalPrice = workshop.quantity * workshop.price;
 
-        return (
-          <div key={`workshop-${workshop.id}`}>
-            <h2>{workshop.workshopName}</h2>
-            <div>{workshop.location}</div>
-            <div>{workshop.date}</div>
-            <div>{workshop.time}</div>
-            <div>{`€ ${workshop.price},-`}</div>
-            <div>{workshop.quantity}</div>
-            <div>{`€ ${workshopTotalPrice},- `}</div>
-          </div>
-        );
-      })}
-      <div>Total Sum:{`€ ${totalSum},-`} </div>
+          return (
+            <div key={`workshop-${workshop.id}`}>
+              <div className={styles.containerSingleWorkshop}>
+                <div className={styles.contentImage}>
+                  <Image
+                    src={`/images/${workshop.image}.webp`}
+                    data-test-id="product-image"
+                    alt={workshop.workshopName}
+                    width={200}
+                    height={300}
+                  />
+                </div>
+                <div className={styles.cartText}>
+                  <h2>{workshop.workshopName}</h2>
+                  <div>Location: {workshop.location}</div>
+                  <div>Date: {workshop.date}</div>
+                  <div>Time: {workshop.time}</div>
+                  <div>Price: {`€ ${workshop.price},-`}</div>
+                  <div className={styles.totalPriceWorkshop}>
+                    <div> {`Qty. ${workshop.quantity}`} </div>
+                    <div>{`€ ${workshopTotalPrice},- `} </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+
+        <div className={styles.totalSum}>Total Sum: {`€ ${totalSum},-`} </div>
+
+        <button className={styles.checkoutButton}>Checkout</button>
+      </div>
     </div>
   );
 }
