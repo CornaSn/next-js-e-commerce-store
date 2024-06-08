@@ -39,14 +39,10 @@
 .checkOutForm {
   width: 100rem;
 }
-.checkOutButton:hover {
-  background-color: var(--blue);
-  color: var(--white);
-}
 
 .totalSum {
   border-top: 3px solid var(--black);
-  margin: 1rem;
+  margin: 0.1rem;
   padding: 3rem 1rem;
   font-size: 1.8rem;
   font-weight: 600;

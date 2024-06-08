@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
                 </Link>
                 <Link href="/about">About us</Link>
                 <Link href="/workshops">Workshops</Link>
-                <Link href="/contact">Contact</Link>
+                {/* <Link href="/contact">Contact</Link> */}
                 <Link href="/cart">
                   <IoCart className={styles.badge} />
                 </Link>

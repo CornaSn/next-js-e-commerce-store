@@ -53,3 +53,8 @@
   background-color: lightgrey;
   cursor: not-allowed;
 }
+
+.checkOutButton:hover {
+  background-color: rgba(26, 158, 0, 0.993);
+  color: var(--white);
+}
