@@ -8,7 +8,7 @@ export default function SetCookiePage() {
 
   return (
     <>
-      <div> Cookie Value {cookieValue.value}</div>
+      <div> Cookie Value {cookieValue}</div>
       <SetCookieForm />
     </>
   );

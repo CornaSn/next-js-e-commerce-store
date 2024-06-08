@@ -62,8 +62,8 @@ export default function Home() {
                         src={`/images/${workshop.image}.webp`}
                         data-test-id="product-image"
                         alt={workshop.workshopName}
-                        layout="fill"
-                        objectFit="cover"
+                        height={200}
+                        width={200}
                       />
                     </div>
                     <div className={styles.workshopLocation}>

@@ -7,6 +7,7 @@ import { IoCart, IoHome } from 'react-icons/io5';
 import { getWorkshops } from '../database/workshops';
 import Logo from '../public/images/logo.webp';
 import { getCookie } from '../util/cookies.js';
+import { parseJson } from '../util/json.js';
 import { createCookie } from './cookie/actions';
 import SetCookieForm from './cookie/SetCookieForm';
 import styles from './Layout.module.scss';
@@ -24,7 +25,9 @@ export default function RootLayout({ children }) {
   const workshopQuantity = !workshopsQuantityCookie
     ? // Case A - Cookie is undefined
       []
-    : JSON.parse(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
+    : parseJson(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
+
+  console.log('workshopquantity1', workshopQuantity);
 
   const workshopsWithQuantity = workshops.map((workshop) => {
     const matchingWithWorkshopFromCookie = workshopQuantity.find(

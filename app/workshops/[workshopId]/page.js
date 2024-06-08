@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getWorkshop, getWorkshops } from '../../../database/workshops';
 import { getCookie } from '../../../util/cookies.js';
+import { parseJson } from '../../../util/json.js';
 // import { notFound } from '../../not-found.js';
 import SetQuantityForm from './SetQuantityForm';
 import styles from './WorkshopPage.module.scss';
@@ -15,17 +16,21 @@ export default function WorkshopId(props) {
   // }
 
   const workshopsQuantityCookies = getCookie('AddtoCart');
+  console.log(typeof workshopsQuantityCookies);
 
   const workshopQuantity = !workshopsQuantityCookies
     ? // Case A - Cookie is undefined
       []
-    : JSON.parse(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
+    : parseJson(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
+
+  console.log('workshopQuantity', workshopQuantity);
 
   const workshopQuantityToDisplay = workshopQuantity.find(
     (workshopQuantity) => {
       return workshopQuantity.id === singleWorkshop.id;
     },
   );
+  console.log('workshopQuantityToDisplay', workshopQuantityToDisplay);
 
   return (
     <div className={styles.sectionContainer}>
