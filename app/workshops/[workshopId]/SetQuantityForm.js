@@ -9,7 +9,7 @@ export default function SetQuantityForm(props) {
   return (
     <form>
       <label>
-        <a className={styles.quantity}> Quantity:</a>
+        <a className={styles.quantity}> Qty:</a>
         <select
           className={styles.quantityOption}
           data-test-id="product-quantity"

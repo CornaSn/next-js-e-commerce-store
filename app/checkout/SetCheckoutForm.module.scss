@@ -37,7 +37,9 @@
 
 .checkOutButton {
   display: block;
-  background-color: var(--white);
+  background-color: rgba(26, 158, 0, 0.993);
+  color: var(--white);
+
   border: 3px solid var(--grey);
   padding: 1rem 2rem;
   border-radius: 5px;
@@ -52,9 +54,4 @@
 .checkOutButton:disabled {
   background-color: lightgrey;
   cursor: not-allowed;
-}
-
-.checkOutButton:hover {
-  background-color: rgba(26, 158, 0, 0.993);
-  color: var(--white);
 }

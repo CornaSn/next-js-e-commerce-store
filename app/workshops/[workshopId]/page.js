@@ -26,8 +26,8 @@ export default function WorkshopId(props) {
   // console.log('workshopQuantity', workshopQuantity);
 
   const workshopQuantityToDisplay = workshopQuantity.find(
-    (workshopQuantity) => {
-      return workshopQuantity.id === singleWorkshop.id;
+    (quantityWorkshop) => {
+      return quantityWorkshop.id === singleWorkshop.id;
     },
   );
   // console.log('workshopQuantityToDisplay', workshopQuantityToDisplay);
@@ -63,7 +63,7 @@ export default function WorkshopId(props) {
                 <strong>Time:</strong> {singleWorkshop.time}
               </div>
               <div>
-                <strong data-test-id="product-price">Price:</strong>€
+                <strong data-test-id="product-price">Price: </strong>€
                 {singleWorkshop.price},-
               </div>
             </div>
@@ -73,10 +73,7 @@ export default function WorkshopId(props) {
           <br />
           <br />
           <div className={styles.addViewCart}>
-            <SetQuantityForm
-              singleWorkshopId={singleWorkshop.id}
-              className={styles.quantityButton}
-            />
+            <SetQuantityForm singleWorkshopId={singleWorkshop.id} />
             <Link href="/cart" className={styles.viewCart}>
               View Cart
             </Link>

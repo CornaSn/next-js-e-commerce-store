@@ -1,3 +1,6 @@
+import { cookies } from 'next/headers';
+import { getCookie } from '../../../util/cookies';
+
 export const metadata = {
   title: 'Thank You',
   description:
@@ -5,6 +8,12 @@ export const metadata = {
 };
 
 export default function ThankYou() {
+  const workshopsQuantityCookies = getCookie('AddtoCart');
+
+  async function clearCookies(workshopsQuantityCookies) {
+    cookies().delete('AddToCart');
+  }
+
   return (
     <div>
       <h1>Thank you for your purchase!</h1>

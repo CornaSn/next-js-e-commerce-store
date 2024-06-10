@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { clearCookies } from './actions';
 import styles from './SetCheckoutForm.module.scss';
 
 export default function SetCheckOutForm(props) {
@@ -17,6 +18,13 @@ export default function SetCheckOutForm(props) {
   const [securityCode, setSecurityCode] = useState('');
 
   const router = useRouter();
+
+  const handleCheckout = async () => {
+    // Clear cookies
+    await clearCookies();
+    // Redirect to Thank You page
+    router.push('/checkout/thank-you');
+  };
 
   return (
     <div className={styles.container}>
@@ -125,7 +133,7 @@ export default function SetCheckOutForm(props) {
           </div>
           <button
             type="button"
-            onClick={() => router.push('/checkout/thank-you')}
+            onClick={() => handleCheckout()}
             className={styles.checkOutButton}
             disabled={
               !firstName ||
@@ -140,7 +148,7 @@ export default function SetCheckOutForm(props) {
               !securityCode
             }
           >
-            Confirm Order
+            Checkout
           </button>
         </form>
       </div>
