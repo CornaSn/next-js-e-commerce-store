@@ -63,7 +63,7 @@ export default function WorkshopId(props) {
                 <strong>Time:</strong> {singleWorkshop.time}
               </div>
               <div>
-                <strong data-test-id="product- price">Price: €</strong>
+                <strong data-test-id="product-price">Price:</strong>€
                 {singleWorkshop.price},-
               </div>
             </div>

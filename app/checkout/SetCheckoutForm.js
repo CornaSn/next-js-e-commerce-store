@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import styles from './SetCheckoutForm.module.scss';
 
@@ -14,6 +15,8 @@ export default function SetCheckOutForm(props) {
   const [creditCardNumber, setCreditCardNumber] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [securityCode, setSecurityCode] = useState('');
+
+  const router = useRouter();
 
   return (
     <div className={styles.container}>
@@ -121,6 +124,8 @@ export default function SetCheckOutForm(props) {
             </div>
           </div>
           <button
+            type="button"
+            onClick={() => router.push('/checkout/thank-you')}
             className={styles.checkOutButton}
             disabled={
               !firstName ||

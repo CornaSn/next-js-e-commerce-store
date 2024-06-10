@@ -4,6 +4,7 @@ import { getWorkshops } from '../../database/workshops';
 import { getCookie } from '../../util/cookies';
 import { WorkshopsInCart } from '../../util/workshopsInCart';
 import styles from './Cart.module.scss';
+import RemoveButtonForm from './RemoveButtonForm';
 
 export const metadata = {
   title: 'Cart',
@@ -33,7 +34,10 @@ export default function CartPage() {
           const workshopTotalPrice = workshop.quantity * workshop.price;
 
           return (
-            <div key={`workshop-${workshop.id}`}>
+            <div
+              key={`workshop-${workshop.id}`}
+              data-test-id={`cart-product-${workshop.id}`}
+            >
               <div className={styles.containerSingleWorkshop}>
                 <div className={styles.contentImage}>
                   <Image
@@ -45,13 +49,19 @@ export default function CartPage() {
                   />
                 </div>
                 <div className={styles.cartText}>
-                  <h2>{workshop.workshopName}</h2>
+                  <h2>
+                    {workshop.workshopName}{' '}
+                    <RemoveButtonForm workshopId={workshop.id} />
+                  </h2>
+
                   <div>Location: {workshop.location}</div>
                   <div>Date: {workshop.date}</div>
                   <div>Time: {workshop.time}</div>
                   <div>Price: {`€ ${workshop.price},-`}</div>
                   <div className={styles.totalPriceWorkshop}>
-                    <div> {`Qty. ${workshop.quantity}`} </div>
+                    <div data-test-id={`cart-product-quantity-${workshop.id}`}>
+                      {`Qty. ${workshop.quantity}`}{' '}
+                    </div>
                     <div>{`€ ${workshopTotalPrice},- `} </div>
                   </div>
                 </div>
