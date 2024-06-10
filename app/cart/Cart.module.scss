@@ -11,6 +11,23 @@
   }
 }
 
+.emptyCart {
+  color: var(--blue);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  line-height: 2rem;
+  font-weight: 600;
+  word-spacing: 0.2rem;
+  margin: 4rem;
+  align-items: center;
+  text-align: center;
+}
+
+.removeButton {
+  text-align: right;
+
+}
+
 .containerCartWorkshops {
   border: 2px solid var(--blue);
   border-radius: 5px;

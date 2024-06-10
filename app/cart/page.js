@@ -29,51 +29,61 @@ export default function CartPage() {
     <div className={styles.containerCart}>
       <h1>Cart</h1>
       <div className={styles.containerCartWorkshops}>
-        {workshopsInCart.map((workshop) => {
-          // Calculate the total Price of one workshop
-          const workshopTotalPrice = workshop.quantity * workshop.price;
+        {workshopsInCart.length === 0 ? (
+          <p className={styles.emptyCart}>Your cart is empty.</p>
+        ) : (
+          <>
+            {workshopsInCart.map((workshop) => {
+              // Calculate the total Price of one workshop
+              const workshopTotalPrice = workshop.quantity * workshop.price;
 
-          return (
-            <div
-              key={`workshop-${workshop.id}`}
-              data-test-id={`cart-product-${workshop.id}`}
-            >
-              <div className={styles.containerSingleWorkshop}>
-                <div className={styles.contentImage}>
-                  <Image
-                    src={`/images/${workshop.image}.webp`}
-                    data-test-id="product-image"
-                    alt={workshop.workshopName}
-                    width={200}
-                    height={300}
-                  />
-                </div>
-                <div className={styles.cartText}>
-                  <h2>
-                    {workshop.workshopName}{' '}
-                    <RemoveButtonForm workshopId={workshop.id} />
-                  </h2>
-
-                  <div>Location: {workshop.location}</div>
-                  <div>Date: {workshop.date}</div>
-                  <div>Time: {workshop.time}</div>
-                  <div>Price: {`€ ${workshop.price},-`}</div>
-                  <div className={styles.totalPriceWorkshop}>
-                    <div data-test-id={`cart-product-quantity-${workshop.id}`}>
-                      {`Qty. ${workshop.quantity}`}{' '}
+              return (
+                <div
+                  key={`workshop-${workshop.id}`}
+                  data-test-id={`cart-product-${workshop.id}`}
+                >
+                  <div className={styles.containerSingleWorkshop}>
+                    <div className={styles.contentImage}>
+                      <Image
+                        src={`/images/${workshop.image}.webp`}
+                        data-test-id="product-image"
+                        alt={workshop.workshopName}
+                        width={200}
+                        height={300}
+                      />
                     </div>
-                    <div>{`€ ${workshopTotalPrice},- `} </div>
+                    <div className={styles.cartText}>
+                      <div className={styles.removeButton}>
+                        <RemoveButtonForm workshopId={workshop.id} />
+                      </div>
+                      <h2>{workshop.workshopName}</h2>
+
+                      <div>Location: {workshop.location}</div>
+                      <div>Date: {workshop.date}</div>
+                      <div>Time: {workshop.time}</div>
+                      <div>Price: {`€ ${workshop.price},-`}</div>
+                      <div className={styles.totalPriceWorkshop}>
+                        <div
+                          data-test-id={`cart-product-quantity-${workshop.id}`}
+                        >
+                          {`Qty. ${workshop.quantity}`}{' '}
+                        </div>
+                        <div>{`€ ${workshopTotalPrice},- `} </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          );
-        })}
+              );
+            })}
 
-        <div className={styles.totalSum}>Total Sum: {`€ ${totalSum},-`} </div>
-        <Link href="/checkout" className={styles.checkOutButton}>
-          Checkout
-        </Link>
+            <div className={styles.totalSum}>
+              Total Sum: {`€ ${totalSum},-`}{' '}
+            </div>
+            <Link href="/checkout" className={styles.checkOutButton}>
+              Checkout
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
