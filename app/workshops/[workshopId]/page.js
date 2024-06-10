@@ -21,8 +21,7 @@ export default function WorkshopId(props) {
   const workshopQuantity = !workshopsQuantityCookies
     ? // Case A - Cookie is undefined
       []
-    : JSON.parse(workshopsQuantityCookies) || [];
-  //: parseJson(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
+    : parseJson(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
 
   // console.log('workshopQuantity', workshopQuantity);
 

@@ -1,4 +1,5 @@
 import { getWorkshops } from '../database/workshops';
+import { parseJson } from '../util/json.js';
 import { getCookie } from './cookies';
 
 export function WorkshopsInCart() {
@@ -7,7 +8,7 @@ export function WorkshopsInCart() {
 
   const workshopQuantity = !workshopsQuantityCookie
     ? []
-    : JSON.parse(workshopsQuantityCookie) || [];
+    : parseJson(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
 
   // Check which workshops are in cookies
   const workshopsWithQuantity = workshops.map((workshop) => {
