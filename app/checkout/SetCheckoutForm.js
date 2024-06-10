@@ -88,6 +88,8 @@ export default function SetCheckOutForm(props) {
                 type="text"
                 value={postalCode}
                 placeholder="Postal Code"
+                pattern="\d*"
+                inputMode="numeric"
                 onChange={(event) => setPostalCode(event.currentTarget.value)}
               />
               <label htmlFor="country">Country</label>
@@ -134,6 +136,7 @@ export default function SetCheckOutForm(props) {
           <button
             type="button"
             onClick={() => handleCheckout()}
+            data-test-id="checkout-confirm-order"
             className={styles.checkOutButton}
             disabled={
               !firstName ||
@@ -148,7 +151,7 @@ export default function SetCheckOutForm(props) {
               !securityCode
             }
           >
-            Checkout
+            Confirm Order
           </button>
         </form>
       </div>

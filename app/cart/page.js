@@ -56,7 +56,11 @@ export default function CartPage() {
                       <div className={styles.removeButton}>
                         <RemoveButtonForm workshopId={workshop.id} />
                       </div>
-                      <h2>{workshop.workshopName}</h2>
+                      <h2>
+                        <Link href={`/workshops/${workshop.id}`}>
+                          {workshop.workshopName}{' '}
+                        </Link>
+                      </h2>
 
                       <div>Location: {workshop.location}</div>
                       <div>Date: {workshop.date}</div>

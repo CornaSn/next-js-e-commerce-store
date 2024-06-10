@@ -56,6 +56,30 @@
   margin-bottom: 3rem;
 }
 
+.link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.otherWorkshopLink {
+  background-color: var(--cream);
+  border: 1px solid var(--grey);
+  padding: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: left;
+  align-items: center;
+}
+.otherWorkshopLink:hover {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
 .addViewCart {
   display: flex;
   flex-direction: column;
@@ -72,7 +96,6 @@
   letter-spacing: 2px;
   text-align: right;
 }
-
 .viewCart:hover {
   background-color: var(--blue);
   color: var(--white);

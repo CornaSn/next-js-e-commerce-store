@@ -71,10 +71,10 @@ export default function RootLayout({ children }) {
                 <Link href="/about">About us</Link>
                 <Link href="/workshops">Workshops</Link>
                 {/* <Link href="/contact">Contact</Link> */}
-                <Link href="/cart">
+                <Link href="/cart" data-test-id="cart-link">
                   <IoCart className={styles.badge} />
                 </Link>
-                <li className={styles.badgeNumber}>
+                <li className={styles.badgeNumber} data-test-id="cart-count">
                   {SumCart(workshopsWithQuantity)}
                 </li>
               </ul>

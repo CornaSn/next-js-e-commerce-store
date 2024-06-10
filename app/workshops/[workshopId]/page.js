@@ -74,6 +74,11 @@ export default function WorkshopId(props) {
           <br />
           <div className={styles.addViewCart}>
             <SetQuantityForm singleWorkshopId={singleWorkshop.id} />
+          </div>
+          <div className={styles.link}>
+            <Link href="/workshops" className={styles.otherWorkshopLink}>
+              Go to all Workshops
+            </Link>
             <Link href="/cart" className={styles.viewCart}>
               View Cart
             </Link>
