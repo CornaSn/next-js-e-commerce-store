@@ -1,6 +1,7 @@
+import { cache } from 'react';
 import { sql } from './connect';
 
-const workshops = [
+const workshops1 = [
   {
     id: 1,
     workshopName: 'Handbalance Workshop',
@@ -48,19 +49,25 @@ const workshops = [
   },
 ];
 
-export function getWorkshops() {
-  return workshops;
-}
+export const getWorkshopsInsecure = cache(async () => {
+  const workshops = await sql`
+    SELECT
+      *
+    FROM
+      workshops
+  `;
+
+  // Convert Date objects to strings
+  const formattedWorkshops = workshops.map((workshop) => {
+    return {
+      ...workshop,
+      date: workshop.date ? workshop.date.toISOString() : '', // Adjust according to your date field
+    };
+  });
+
+  return formattedWorkshops;
+});
 
 export function getWorkshop(id) {
-  return workshops.find((workshop) => workshop.id === id);
+  return workshops1.find((workshop) => workshop.id === id);
 }
-
-console.log(
-  await sql`
-SELECT
-*
-FROM
-workshops
-`,
-);

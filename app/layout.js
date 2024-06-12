@@ -2,7 +2,7 @@ import './globals.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoCart, IoHome } from 'react-icons/io5';
-import { getWorkshops } from '../database/workshops';
+import { getWorkshopsInsecure } from '../database/workshops';
 import Logo from '../public/images/logo.webp';
 import { getCookie } from '../util/cookies.js';
 import { parseJson } from '../util/json.js';
@@ -13,7 +13,16 @@ export const metadata = {
   description:
     'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
 };
-const workshops = getWorkshops();
+
+let workshops;
+async function workshopsFromDatabase() {
+  workshops = await getWorkshopsInsecure();
+
+  console.log('layout page', workshops);
+  return workshops;
+}
+workshopsFromDatabase();
+console.log('here we go', workshops);
 
 export default function RootLayout({ children }) {
   const workshopsQuantityCookie = getCookie('AddToCart');

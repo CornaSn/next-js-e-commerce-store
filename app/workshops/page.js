@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getWorkshops } from '../../database/workshops.js';
+import { getWorkshopsInsecure } from '../../database/workshops';
 import styles from './Page.module.scss';
 
 export const metadata = {
@@ -9,8 +9,11 @@ export const metadata = {
     'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
 };
 
-export default function Workshops() {
-  const workshops = getWorkshops();
+export default async function Workshops() {
+  const workshops = await getWorkshopsInsecure();
+
+  // console.log('page workshops', workshops);
+
   return (
     <section className={styles.previewWorkshops}>
       <div className={styles.containerUpcoming}>
