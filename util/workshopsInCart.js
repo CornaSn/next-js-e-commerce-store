@@ -1,9 +1,9 @@
-import { getWorkshops } from '../database/workshops';
+import { getWorkshopsInsecure } from '../database/workshops';
 import { parseJson } from '../util/json.js';
 import { getCookie } from './cookies';
 
 export async function WorkshopsInCart() {
-  const workshops = await getWorkshops();
+  const workshops = await getWorkshopsInsecure();
   const workshopsQuantityCookie = getCookie('AddToCart');
 
   const workshopQuantity = !workshopsQuantityCookie

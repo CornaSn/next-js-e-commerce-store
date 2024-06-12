@@ -4,8 +4,8 @@ import { getWorkshopsInsecure } from '../database/workshops';
 import imageHome from '../public/images/imageHome.webp';
 import styles from './Page.module.scss';
 
-export default function Home() {
-  const workshops = getWorkshopsInsecure();
+export default async function Home() {
+  const workshops = await getWorkshopsInsecure();
   return (
     <div>
       <section className={styles.introTop}>

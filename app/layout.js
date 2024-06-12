@@ -18,11 +18,11 @@ let workshops;
 async function workshopsFromDatabase() {
   workshops = await getWorkshopsInsecure();
 
-  console.log('layout page', workshops);
+  // console.log('layout page', workshops);
   return workshops;
 }
 workshopsFromDatabase();
-console.log('here we go', workshops);
+// console.log('here its undefined', workshops);
 
 export default function RootLayout({ children }) {
   const workshopsQuantityCookie = getCookie('AddToCart');

@@ -1,14 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getWorkshopsInsecure } from '../../../database/workshops';
+import { getWorkshopInsecure } from '../../../database/workshops';
 import { getCookie } from '../../../util/cookies.js';
 import { parseJson } from '../../../util/json.js';
 // import { notFound } from '../../not-found.js';
 import SetQuantityForm from './SetQuantityForm';
 import styles from './WorkshopPage.module.scss';
 
-export default function WorkshopId(props) {
-  const singleWorkshop = getWorkshopsInsecure(Number(props.params.workshopId));
+export default async function WorkshopId(props) {
+  const singleWorkshop = await getWorkshopInsecure(
+    Number(props.params.workshopId),
+  );
+  console.log('getsingleWorkshop', singleWorkshop);
 
   // // //  Inserting a "not found" page
   // if (!singleWorkshop) {

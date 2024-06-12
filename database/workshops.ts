@@ -1,4 +1,5 @@
 import { cache } from 'react';
+import { formatDate } from '../util/dates.js';
 import { sql } from './connect';
 
 const workshops1 = [
@@ -49,6 +50,7 @@ const workshops1 = [
   },
 ];
 
+// Get whole database information
 export const getWorkshopsInsecure = cache(async () => {
   const workshops = await sql`
     SELECT
@@ -67,6 +69,27 @@ export const getWorkshopsInsecure = cache(async () => {
   return formattedWorkshops;
 });
 
-export function getWorkshop(id) {
-  return workshops1.find((workshop) => workshop.id === id);
-}
+// Get single workshop information from database
+export const getWorkshopInsecure = cache(async (id) => {
+  const workshops = await sql`
+    SELECT
+      *
+    FROM
+      workshops
+    WHERE
+      id = ${id}
+  `;
+
+  // Convert Date objects to strings
+  const formattedWorkshop = workshops.map((workshops) => {
+    return {
+      ...workshops,
+      date: workshops.date ? workshops.date.toISOString() : '',
+    };
+  });
+  return formattedWorkshop[0];
+});
+
+// export function getWorkshop(id) {
+//   return workshops1.find((workshop) => workshop.id === id);
+// }
