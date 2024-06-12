@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getWorkshops } from '../database/workshops';
+import { getWorkshopsInsecure } from '../database/workshops';
 import imageHome from '../public/images/imageHome.webp';
 import styles from './Page.module.scss';
 
 export default function Home() {
-  const workshops = getWorkshops();
+  const workshops = getWorkshopsInsecure();
   return (
     <div>
       <section className={styles.introTop}>

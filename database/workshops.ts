@@ -45,7 +45,7 @@ const workshops1 = [
     price: 55,
     image: 'pregnantYoga',
     description:
-      'Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad, ipsum alii vidisse justo id. Option porttitor diam voluptua. Cu Eam augue dolor dolores quis, Nam aliquando elitr Etiam consetetur. Fringilla lucilius mel adipiscing rebum. Sit nulla Integer ad volumus, dicta scriptorem viderer lobortis est Utinam, enim commune corrumpit Aenean erat tellus. Metus sed amet dolore justo, gubergren sed. ',
+      'Join our Prenatal Yoga workshop for a serene and nurturing experience tailored to expectant mothers. This workshop offers gentle yoga postures, breathing techniques, and mindfulness practices to support your changing body and promote well-being. Led by experienced prenatal yoga instructors, each session helps alleviate pregnancy discomforts and prepares you for childbirth. Connect with your baby, reduce stress, and embrace the journey of motherhood in a safe and supportive environment. All levels are welcome. Bring your mat and a supportive pillow, and enjoy the benefits of prenatal yoga.',
   },
 ];
 
@@ -58,13 +58,12 @@ export const getWorkshopsInsecure = cache(async () => {
   `;
 
   // Convert Date objects to strings
-  const formattedWorkshops = workshops.map((workshop) => {
+  const formattedWorkshops = workshops.map((workshops) => {
     return {
-      ...workshop,
-      date: workshop.date ? workshop.date.toISOString() : '', // Adjust according to your date field
+      ...workshops,
+      date: workshops.date ? workshops.date.toISOString() : '',
     };
   });
-
   return formattedWorkshops;
 });
 
