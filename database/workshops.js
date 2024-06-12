@@ -1,4 +1,4 @@
-import 'server-only';
+import { sql } from './connect';
 
 const workshops = [
   {
@@ -55,3 +55,12 @@ export function getWorkshops() {
 export function getWorkshop(id) {
   return workshops.find((workshop) => workshop.id === id);
 }
+
+console.log(
+  await sql`
+SELECT
+*
+FROM
+workshops
+`,
+);

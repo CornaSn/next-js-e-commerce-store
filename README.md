@@ -12,6 +12,7 @@ TBA
 
 - Next.js
 - Sass
+- Postgres
 
 ## Credits
 
