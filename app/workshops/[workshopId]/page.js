@@ -63,7 +63,11 @@ export default async function WorkshopId(props) {
                 <strong>Date:</strong> {singleWorkshop.date.slice(0, 10)}
               </div>
               <div>
-                <strong>Time:</strong> {singleWorkshop.time}
+                <strong>Start time:</strong>{' '}
+                {singleWorkshop.startTime.slice(0, 5)}
+              </div>
+              <div>
+                <strong>End time:</strong> {singleWorkshop.endTime.slice(0, 5)}
               </div>
               <div>
                 <strong data-test-id="product-price">Price: </strong>€

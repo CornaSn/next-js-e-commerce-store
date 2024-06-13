@@ -25,7 +25,7 @@ export default async function CartPage() {
 
   return (
     <div className={styles.containerCart}>
-      <h1>Cart</h1>
+      <h1>Your Cart:</h1>
       <div className={styles.containerCartWorkshops}>
         {workshopsInCart.length === 0 ? (
           <p className={styles.emptyCart}>Your cart is empty.</p>
@@ -62,8 +62,11 @@ export default async function CartPage() {
 
                       <div>Location: {workshop.location}</div>
                       <div>Date: {workshop.date.slice(0, 10)}</div>
-                      <div>Time: {workshop.time}</div>
-                      <div>Price: {`€ ${workshop.price},-`}</div>
+                      <div>Start time: {workshop.startTime.slice(0, 5)}</div>
+                      <div>End time: {workshop.endTime.slice(0, 5)}</div>
+                      <div data-test-id="product-price">
+                        Price: €{` ${workshop.price},-`}
+                      </div>
                       <div className={styles.totalPriceWorkshop}>
                         <div
                           data-test-id={`cart-product-quantity-${workshop.id}`}
@@ -78,7 +81,7 @@ export default async function CartPage() {
               );
             })}
 
-            <div className={styles.totalSum}>
+            <div className={styles.totalSum} data-test-id="cart-total">
               Total Sum: {`€ ${totalSum},-`}{' '}
             </div>
             <Link href="/checkout" className={styles.checkOutButton}>

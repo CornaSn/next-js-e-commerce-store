@@ -38,7 +38,9 @@ export default async function Workshops() {
                   <div className={styles.workshopLocation}>
                     {workshop.location}
                   </div>
-                  <div className={styles.workshopDate}>{workshop.date}</div>
+                  <div className={styles.workshopDate}>
+                    {workshop.date.slice(0, 10)}
+                  </div>
                   <Link
                     href={`/workshops/${workshop.id}`}
                     className={styles.moreDetailsButton}
