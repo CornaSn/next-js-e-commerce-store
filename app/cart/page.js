@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getWorkshopsInsecure } from '../../database/workshops';
-import { getCookie } from '../../util/cookies';
 import { WorkshopsInCart } from '../../util/workshopsInCart';
 import styles from './Cart.module.scss';
 import RemoveButtonForm from './RemoveButtonForm';
@@ -16,14 +14,14 @@ export default async function CartPage() {
   // Insert WorkshopsInCart function from util folder
   const workshopsInCart = await WorkshopsInCart();
 
+  console.log('workshopsInCart', workshopsInCart);
+
   // Calculate the total Sum of all Workshops
   const initialValue = 0;
-  const totalSum = workshopsInCart.reduce(
-    (accumulator, workshop) =>
-      (accumulator + workshop.price) * workshop.quantity,
-    initialValue,
-  );
-  // console.log('totalSum:', totalSum);
+  const totalSum = workshopsInCart.reduce((accumulator, workshop) => {
+    return accumulator + Number(workshop.price) * Number(workshop.quantity);
+  }, initialValue);
+  console.log('totalSum:', totalSum);
 
   return (
     <div className={styles.containerCart}>
@@ -63,7 +61,7 @@ export default async function CartPage() {
                       </h2>
 
                       <div>Location: {workshop.location}</div>
-                      <div>Date: {workshop.date}</div>
+                      <div>Date: {workshop.date.slice(0, 10)}</div>
                       <div>Time: {workshop.time}</div>
                       <div>Price: {`€ ${workshop.price},-`}</div>
                       <div className={styles.totalPriceWorkshop}>

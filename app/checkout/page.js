@@ -9,18 +9,17 @@ export const metadata = {
     'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
 };
 
-export default function CheckOut() {
+export default async function CheckOut() {
   // Insert WorkshopsInCart function from util folder
-  const workshopsInCart = WorkshopsInCart();
+  const workshopsInCart = await WorkshopsInCart();
 
   // Calculate the total Sum of all Workshops
   const initialValue = 0;
   const totalSum = workshopsInCart.reduce(
     (accumulator, workshop) =>
-      (accumulator + workshop.price) * workshop.quantity,
+      (accumulator + Number(workshop.price)) * Number(workshop.quantity),
     initialValue,
   );
-  // console.log('totalSum:', totalSum);
 
   return (
     <div className={styles.checkOutContainer}>
@@ -29,7 +28,7 @@ export default function CheckOut() {
       </div>
       <div className={styles.containerCart}>
         <h1>Your Order:</h1>
-        <div className={styles.containerCartWorkshops}>
+        <div>
           {workshopsInCart.map((workshop) => {
             // Calculate the total Price of one workshop
             return (
@@ -40,7 +39,7 @@ export default function CheckOut() {
                       {workshop.quantity}x {workshop.workshopName}
                     </h2>
                     <div>Location: {workshop.location}</div>
-                    <div>Date: {workshop.date}</div>
+                    <div>Date: {workshop.date.slice(0, 10)}</div>
                   </div>
                 </div>
               </div>

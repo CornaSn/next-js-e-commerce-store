@@ -2,10 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getWorkshopsInsecure } from '../database/workshops';
 import imageHome from '../public/images/imageHome.webp';
+import { formatDate } from '../util/dates';
 import styles from './Page.module.scss';
 
 export default async function Home() {
   const workshops = await getWorkshopsInsecure();
+
   return (
     <div>
       <section className={styles.introTop}>
@@ -69,7 +71,9 @@ export default async function Home() {
                     <div className={styles.workshopLocation}>
                       {workshop.location}
                     </div>
-                    <div className={styles.workshopDate}>{workshop.date}</div>
+                    <div className={styles.workshopDate}>
+                      {workshop.date.slice(0, 10)}
+                    </div>
                     <Link
                       href={`/workshops/${workshop.id}`}
                       className={styles.moreDetailsButton}

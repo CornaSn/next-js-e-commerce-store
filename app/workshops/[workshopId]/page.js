@@ -60,7 +60,7 @@ export default async function WorkshopId(props) {
                 <strong>Location:</strong> {singleWorkshop.location}
               </div>
               <div>
-                <strong>Date:</strong> {singleWorkshop.date}
+                <strong>Date:</strong> {singleWorkshop.date.slice(0, 10)}
               </div>
               <div>
                 <strong>Time:</strong> {singleWorkshop.time}
