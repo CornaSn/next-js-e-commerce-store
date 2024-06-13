@@ -8,6 +8,7 @@
   h1 {
     font-size: 6rem;
     margin: 1.8rem;
+    margin-top: 4rem;
     color: var(--blue);
     font-weight: 200;
     letter-spacing: 3px;
@@ -15,8 +16,7 @@
   }
   div {
     width: 30rem;
-    margin: 3rem;
-    margin-top: 4rem;
+    margin-left: 2rem;
     margin-right: 20rem;
     p {
       color: var(--blue);
@@ -33,9 +33,10 @@
 }
 
 .bigPictureHome {
-  width: 60rem;
+  width: 50rem;
   height: auto;
   border-radius: 5px;
+  margin-left: 16rem;
 }
 
 .intro {
@@ -44,6 +45,7 @@
 
   div {
     width: 60rem;
+    text-align: justify;
   }
   h2 {
     padding-bottom: 0.75rem;
@@ -62,7 +64,7 @@
 
 .previewWorkshops {
   align-items: stretch;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
   position: relative;
   justify-content: space-around;

@@ -14,25 +14,15 @@ export const metadata = {
     'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
 };
 
-let workshops;
-async function workshopsFromDatabase() {
-  workshops = await getWorkshopsInsecure();
+export default async function RootLayout({ children }) {
+  const workshops = await getWorkshopsInsecure();
 
-  // console.log('layout page', workshops);
-  return workshops;
-}
-workshopsFromDatabase();
-// console.log('here its undefined', workshops);
-
-export default function RootLayout({ children }) {
   const workshopsQuantityCookie = getCookie('AddToCart');
 
   const workshopQuantity = !workshopsQuantityCookie
     ? // Case A - Cookie is undefined
       []
     : parseJson(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
-
-  // console.log('workshopQuantity', workshopQuantity);
 
   const workshopsWithQuantity = workshops.map((workshop) => {
     const matchingWithWorkshopFromCookie = workshopQuantity.find(
@@ -45,13 +35,13 @@ export default function RootLayout({ children }) {
     } else {
       value = matchingWithWorkshopFromCookie.quantity;
     }
-    // ? Optional Chaining if matchingWithWorkshopFromCookie === undefined, return undefined, else return qunatity
     return {
       ...workshop,
       quantity: Number(value),
     };
   });
 
+  // Add all workshops in cookie together
   function SumCart(cookieWorkshopObject) {
     const totalCart = cookieWorkshopObject.reduce(function (quantity, sum) {
       return {

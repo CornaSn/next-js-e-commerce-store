@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getWorkshops } from '../../database/workshops';
+import { getWorkshopsInsecure } from '../../database/workshops';
 import { getCookie } from '../../util/cookies';
 import { WorkshopsInCart } from '../../util/workshopsInCart';
 import styles from './Cart.module.scss';
@@ -12,9 +12,9 @@ export const metadata = {
     'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
 };
 
-export default function CartPage() {
+export default async function CartPage() {
   // Insert WorkshopsInCart function from util folder
-  const workshopsInCart = WorkshopsInCart();
+  const workshopsInCart = await WorkshopsInCart();
 
   // Calculate the total Sum of all Workshops
   const initialValue = 0;
