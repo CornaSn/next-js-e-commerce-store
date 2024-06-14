@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getWorkshopInsecure } from '../../../database/workshops';
 import { getCookie } from '../../../util/cookies.js';
-import { formatDate } from '../../../util/dates';
+import { formatDate, formatTime } from '../../../util/dates';
 import { parseJson } from '../../../util/json.js';
 // import { notFound } from '../../not-found.js';
 import SetQuantityForm from './SetQuantityForm';
@@ -61,12 +61,13 @@ export default async function WorkshopId(props) {
                 <strong>Location:</strong> {singleWorkshop.location}
               </div>
               <div>
-                <strong>Start time:</strong>{' '}
+                <strong>Date:</strong>{' '}
                 {formatDate(new Date(singleWorkshop.startTime))}
               </div>
               <div>
-                <strong>End time:</strong>{' '}
-                {formatDate(new Date(singleWorkshop.endTime))}
+                <strong>Time:</strong>{' '}
+                {formatTime(new Date(singleWorkshop.startTime))} -{' '}
+                {formatTime(new Date(singleWorkshop.endTime))}
               </div>
               <div>
                 <strong data-test-id="product-price">Price: </strong>€

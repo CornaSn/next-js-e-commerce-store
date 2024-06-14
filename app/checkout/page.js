@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { formatDate } from '../../util/dates';
 import { WorkshopsInCart } from '../../util/workshopsInCart';
 import styles from './Checkout.module.scss';
 import SetCheckOutForm from './SetCheckoutForm';
@@ -39,7 +40,7 @@ export default async function CheckOut() {
                       {workshop.quantity}x {workshop.workshopName}
                     </h2>
                     <div>Location: {workshop.location}</div>
-                    <div>Date: {workshop.date.slice(0, 10)}</div>
+                    <div>Date: {formatDate(new Date(workshop.startTime))}</div>
                   </div>
                 </div>
               </div>

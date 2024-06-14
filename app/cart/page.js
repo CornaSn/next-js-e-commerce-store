@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatDate } from '../../util/dates';
+import { formatDate, formatTime } from '../../util/dates';
 import { WorkshopsInCart } from '../../util/workshopsInCart';
 import styles from './Cart.module.scss';
 import RemoveButtonForm from './RemoveButtonForm';
@@ -61,10 +61,13 @@ export default async function CartPage() {
 
                       <div>Location: {workshop.location}</div>
                       <div>
-                        Start time: {formatDate(new Date(workshop.startTime))}
+                        <strong>Date:</strong>{' '}
+                        {formatDate(new Date(workshop.startTime))}
                       </div>
                       <div>
-                        End time: {formatDate(new Date(workshop.startTime))}
+                        <strong>Time:</strong>{' '}
+                        {formatTime(new Date(workshop.startTime))} -{' '}
+                        {formatTime(new Date(workshop.endTime))}
                       </div>
                       <div data-test-id="product-price">
                         Price: €{` ${workshop.price},-`}

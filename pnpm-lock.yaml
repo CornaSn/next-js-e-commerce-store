@@ -41,6 +41,9 @@ importers:
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
+      sharp:
+        specifier: ^0.33.4
+        version: 0.33.4
       tsx:
         specifier: ^4.15.4
         version: 4.15.4
@@ -79,8 +82,8 @@ importers:
         specifier: ^16.6.1
         version: 16.6.1(typescript@5.4.5)
       stylelint-config-upleveled:
-        specifier: ^1.1.2
-        version: 1.1.2(postcss@8.4.38)(stylelint@16.6.1(typescript@5.4.5))
+        specifier: ^1.1.3
+        version: 1.1.3(postcss@8.4.38)(stylelint-scss@6.3.0(stylelint@16.6.1(typescript@5.4.5)))(stylelint@16.6.1(typescript@5.4.5))
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
@@ -2685,11 +2688,12 @@ packages:
     peerDependencies:
       stylelint: ^16.0.0
 
-  stylelint-config-upleveled@1.1.2:
-    resolution: {integrity: sha512-M1sgLBj/f1mBGs8E0T8rabCLl+hOpcMwxG/w0OlVXGN4UnqcLglqe8pEm72IPcXwDeBcJdCUh0YMeYWjH1NDsQ==}
+  stylelint-config-upleveled@1.1.3:
+    resolution: {integrity: sha512-ZgTG2H1PUGmtFI9jNWxFPKnryiRBa26dnaYIy4voWYebtg3L9ScDpsOpW6MmUhv7KP20MYFdLApjaYaeDkkR2g==}
     engines: {node: '>=20.9.0'}
     peerDependencies:
-      stylelint: ^16.5.0
+      stylelint: ^16.6.1
+      stylelint-scss: ^6.3.1
 
   stylelint-scss@6.3.0:
     resolution: {integrity: sha512-8OSpiuf1xC7f8kllJsBOFAOYp/mR/C1FXMVeOFjtJPw+AFvEmC93FaklHt7MlOqU4poxuQ1TkYMyfI0V+1SxjA==}
@@ -3895,7 +3899,6 @@ snapshots:
     dependencies:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
-    optional: true
 
   color-support@1.1.3: {}
 
@@ -3903,7 +3906,6 @@ snapshots:
     dependencies:
       color-convert: 2.0.1
       color-string: 1.9.1
-    optional: true
 
   colord@2.9.3: {}
 
@@ -4767,8 +4769,7 @@ snapshots:
 
   is-arrayish@0.2.1: {}
 
-  is-arrayish@0.3.2:
-    optional: true
+  is-arrayish@0.3.2: {}
 
   is-async-function@2.0.0:
     dependencies:
@@ -5584,7 +5585,6 @@ snapshots:
       '@img/sharp-wasm32': 0.33.4
       '@img/sharp-win32-ia32': 0.33.4
       '@img/sharp-win32-x64': 0.33.4
-    optional: true
 
   shebang-command@2.0.0:
     dependencies:
@@ -5606,7 +5606,6 @@ snapshots:
   simple-swizzle@0.2.2:
     dependencies:
       is-arrayish: 0.3.2
-    optional: true
 
   slash@3.0.0: {}
 
@@ -5768,13 +5767,14 @@ snapshots:
     dependencies:
       stylelint: 16.6.1(typescript@5.4.5)
 
-  stylelint-config-upleveled@1.1.2(postcss@8.4.38)(stylelint@16.6.1(typescript@5.4.5)):
+  stylelint-config-upleveled@1.1.3(postcss@8.4.38)(stylelint-scss@6.3.0(stylelint@16.6.1(typescript@5.4.5)))(stylelint@16.6.1(typescript@5.4.5)):
     dependencies:
       postcss-styled-syntax: 0.6.4(postcss@8.4.38)
       stylelint: 16.6.1(typescript@5.4.5)
       stylelint-config-css-modules: 4.4.0(stylelint@16.6.1(typescript@5.4.5))
       stylelint-config-recommended: 14.0.0(stylelint@16.6.1(typescript@5.4.5))
       stylelint-config-recommended-scss: 14.0.0(postcss@8.4.38)(stylelint@16.6.1(typescript@5.4.5))
+      stylelint-scss: 6.3.0(stylelint@16.6.1(typescript@5.4.5))
     transitivePeerDependencies:
       - postcss
 
