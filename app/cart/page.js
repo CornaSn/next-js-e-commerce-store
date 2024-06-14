@@ -14,8 +14,6 @@ export default async function CartPage() {
   // Insert WorkshopsInCart function from util folder
   const workshopsInCart = await WorkshopsInCart();
 
-  console.log('workshopsInCart', workshopsInCart);
-
   // Calculate the total Sum of all Workshops
   const initialValue = 0;
   const totalSum = workshopsInCart.reduce((accumulator, workshop) => {
@@ -61,7 +59,6 @@ export default async function CartPage() {
                       </h2>
 
                       <div>Location: {workshop.location}</div>
-                      <div>Date: {workshop.date.slice(0, 10)}</div>
                       <div>Start time: {workshop.startTime.slice(0, 5)}</div>
                       <div>End time: {workshop.endTime.slice(0, 5)}</div>
                       <div data-test-id="product-price">

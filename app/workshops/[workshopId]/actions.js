@@ -11,7 +11,7 @@ import { getCookie } from '../../../util/cookies';
 
 export async function addQuantityToCart(singleWorkshopId, quantity) {
   // 1. Get current cookie
-  const workshopsQuantityCookie = getCookie('AddToCart');
+  const workshopsQuantityCookie = getCookie('Cart');
 
   // 2. Parse the cookie value
   const workshopQuantity = !workshopsQuantityCookie
@@ -19,13 +19,11 @@ export async function addQuantityToCart(singleWorkshopId, quantity) {
       []
     : JSON.parse(workshopsQuantityCookie) || [];
   // : parseJson(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
-  // console.log(workshopQuantity);
 
   // 3. Edit the cookie value | Search inside Cookie if there is an ID matching the Cookie ID
   const workshopToUpdate = workshopQuantity.find((workshopQuantity) => {
     return workshopQuantity.id === singleWorkshopId;
   });
-  // console.log('What happens here?', workshopToUpdate);
 
   // Case B - Cookie exists, we need to add a new comment
   if (!workshopToUpdate) {
@@ -35,7 +33,5 @@ export async function addQuantityToCart(singleWorkshopId, quantity) {
     workshopToUpdate.quantity = quantity;
   }
   // 4. We override the cookie
-  // console.log('workshopToUpdate2', workshopToUpdate);
-
-  await cookies().set('AddToCart', JSON.stringify(workshopQuantity));
+  await cookies().set('Cart', JSON.stringify(workshopQuantity));
 }

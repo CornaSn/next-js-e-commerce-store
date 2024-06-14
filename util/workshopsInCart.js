@@ -4,7 +4,7 @@ import { getCookie } from './cookies';
 
 export async function WorkshopsInCart() {
   const workshops = await getWorkshopsInsecure();
-  const workshopsQuantityCookie = getCookie('AddToCart');
+  const workshopsQuantityCookie = getCookie('Cart');
 
   const workshopQuantity = !workshopsQuantityCookie
     ? []

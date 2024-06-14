@@ -9,11 +9,11 @@ const sql = postgres();
 
 console.log(
   await sql`
-SELECT
-*
-FROM
-workshops
-`,
+    SELECT
+      *
+    FROM
+      workshops
+  `,
 );
 
 await sql.end();

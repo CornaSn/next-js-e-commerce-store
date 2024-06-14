@@ -16,8 +16,9 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const workshops = await getWorkshopsInsecure();
+  console.log('workshopsFromDatenbank', workshops);
 
-  const workshopsQuantityCookie = getCookie('AddToCart');
+  const workshopsQuantityCookie = getCookie('Cart');
 
   const workshopQuantity = !workshopsQuantityCookie
     ? // Case A - Cookie is undefined
@@ -42,12 +43,23 @@ export default async function RootLayout({ children }) {
   });
 
   // Add all workshops in cookie together
-  function SumCart(cookieWorkshopObject) {
-    const totalCart = cookieWorkshopObject.reduce(function (quantity, sum) {
+  async function SumCart(cookieWorkshopObject) {
+    // Check if the array is empty
+    if (cookieWorkshopObject.length === 0) {
+      return 0;
+    }
+    // Define the initial value for the reduce method
+    const initialValue = { quantity: 0 };
+
+    // Perform the reduce operation with the initial value
+    const totalCart = await cookieWorkshopObject.reduce(function (
+      quantity,
+      sum,
+    ) {
       return {
         quantity: quantity.quantity + sum.quantity,
       };
-    });
+    }, initialValue);
     return totalCart.quantity;
   }
 

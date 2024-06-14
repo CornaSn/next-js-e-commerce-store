@@ -1,13 +1,12 @@
-import { cache } from 'react';
-import { sql } from './connect';
+import { Sql } from 'postgres';
 
 const workshops = [
   {
     id: 1,
     workshopName: 'Handbalance Workshop',
     location: 'Vienna',
-    startTime: '2024-07-13 09:00:00+00',
-    endTime: '2024-07-13 13:00:00+00',
+    startTime: new Date('2024-07-13 09:00:00+00'),
+    endTime: new Date('2024-07-13 13:00:00+00'),
     price: 45,
     image: 'handBalance',
     description:
@@ -17,8 +16,8 @@ const workshops = [
     id: 2,
     workshopName: 'Full Moon Yoga',
     location: 'Vienna',
-    startTime: '2024-08-19 17:00:00+00',
-    endTime: '2024-08-19 20:00:00+00',
+    startTime: new Date('2024-08-19 17:00:00+00'),
+    endTime: new Date('2024-08-19 20:00:00+00'),
     price: 35,
     image: 'childPose',
     description:
@@ -28,8 +27,8 @@ const workshops = [
     id: 3,
     workshopName: 'Mountain Yoga',
     location: 'Salzburg',
-    startTime: '2024-09-14 09:00:00+00',
-    endTime: '2024-08-15 17:00:00+00',
+    startTime: new Date('2024-09-14 09:00:00+00'),
+    endTime: new Date('2024-08-15 17:00:00+00'),
     price: 230,
     image: 'meditationMountain',
     description:
@@ -40,8 +39,8 @@ const workshops = [
     id: 4,
     workshopName: 'Prenatal Yoga',
     location: 'Vienna',
-    startTime: '2024-10-17 10:00:00+00',
-    endTime: '2024-10-17 13:00:00+00',
+    startTime: new Date('2024-10-17 10:00:00+00'),
+    endTime: new Date('2024-10-17 13:00:00+00'),
     price: 55,
     image: 'pregnantYoga',
     description:
@@ -49,61 +48,31 @@ const workshops = [
   },
 ];
 
-type Workshop = {
-  id: number;
-  workshopName: string;
-  location: string;
-  startTime: Date;
-  endTime: Date;
-  price: string;
-  image: string;
-  description: string;
-};
+export async function up(sql: Sql) {
+  for (const workshop of workshops) {
+    await sql`
+      INSERT INTO
+        workshops (
+          workshop_name,
+          location,
+          start_time,
+          end_time,
+          price,
+          image,
+          description
+        )
+      VALUES
+        (
+          ${workshop.workshopName},
+          ${workshop.location},
+          ${workshop.startTime},
+          ${workshop.endTime},
+          ${workshop.price},
+          ${workshop.image},
+          ${workshop.description}
+        )
+    `;
+  }
+}
 
-// Get whole database information
-export const getWorkshopsInsecure = cache(async () => {
-  const workshops = await sql<Workshop[]>`
-    SELECT
-      *
-    FROM
-      workshops
-  `;
-
-  // Convert Date objects to strings and price to number
-  const formattedWorkshops = workshops.map((workshop) => {
-    return {
-      ...workshop,
-      startTime: workshop.startTime.toISOString(),
-      endTime: workshop.endTime.toISOString(),
-      price: parseFloat(workshop.price), // Convert price to number
-    };
-  });
-  return formattedWorkshops;
-});
-
-// Get single workshop information from database
-export const getWorkshopInsecure = cache(async (id: number) => {
-  const workshops = await sql<Workshop[]>`
-    SELECT
-      *
-    FROM
-      workshops
-    WHERE
-      id = ${id}
-  `;
-
-  // Convert Date objects to strings and price to number
-  const formattedWorkshop = workshops.map((workshop) => {
-    return {
-      ...workshop,
-      startTime: workshop.startTime.toISOString(),
-      endTime: workshop.endTime.toISOString(),
-      price: parseFloat(workshop.price), // Convert price to number
-    };
-  });
-  return formattedWorkshop[0];
-});
-
-// export function getWorkshop(id) {
-//   return workshops1.find((workshop) => workshop.id === id);
-// }
+export async function down(sql: Sql) {}

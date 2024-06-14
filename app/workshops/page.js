@@ -39,7 +39,7 @@ export default async function Workshops() {
                     {workshop.location}
                   </div>
                   <div className={styles.workshopDate}>
-                    {workshop.date.slice(0, 10)}
+                    {workshop.startTime.slice(0, 10)}
                   </div>
                   <Link
                     href={`/workshops/${workshop.id}`}

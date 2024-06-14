@@ -2,5 +2,5 @@
 import { cookies } from 'next/headers.js';
 
 export async function createCookie(cookieValue) {
-  await cookies().set('AddToCart', cookieValue);
+  await cookies().set('Cart', cookieValue);
 }

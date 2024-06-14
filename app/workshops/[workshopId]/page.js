@@ -18,7 +18,7 @@ export default async function WorkshopId(props) {
   //   notFound();
   // }
 
-  const workshopsQuantityCookies = getCookie('AddtoCart');
+  const workshopsQuantityCookies = getCookie('Cart');
   // console.log(typeof workshopsQuantityCookies);
 
   const workshopQuantity = !workshopsQuantityCookies
@@ -58,9 +58,6 @@ export default async function WorkshopId(props) {
             <div className={styles.workshopDetails}>
               <div>
                 <strong>Location:</strong> {singleWorkshop.location}
-              </div>
-              <div>
-                <strong>Date:</strong> {singleWorkshop.date.slice(0, 10)}
               </div>
               <div>
                 <strong>Start time:</strong>{' '}
