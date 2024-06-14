@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getWorkshopsInsecure } from '../../database/workshops';
+import { formatDate } from '../../util/dates';
 import styles from './Page.module.scss';
 
 export const metadata = {
@@ -39,7 +40,7 @@ export default async function Workshops() {
                     {workshop.location}
                   </div>
                   <div className={styles.workshopDate}>
-                    {workshop.startTime.slice(0, 10)}
+                    {formatDate(new Date(workshop.startTime))}
                   </div>
                   <Link
                     href={`/workshops/${workshop.id}`}

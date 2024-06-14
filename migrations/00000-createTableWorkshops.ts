@@ -1,11 +1,12 @@
 import { Sql } from 'postgres';
 
 export type Workshop = {
+  id: number;
   workshopName: string;
   location: string;
   startTime: Date;
   endTime: Date;
-  price: string;
+  price: number;
   image: string;
   description: string;
 };
@@ -18,7 +19,7 @@ export async function up(sql: Sql) {
       location varchar(40) NOT NULL,
       start_time timestamptz NOT NULL,
       end_time timestamptz NOT NULL,
-      price numeric NOT NULL,
+      price integer NOT NULL,
       image varchar(40) NOT NULL,
       description varchar(1000) NOT NULL
     )

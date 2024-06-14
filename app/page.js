@@ -72,7 +72,7 @@ export default async function Home() {
                       {workshop.location}
                     </div>
                     <div className={styles.workshopDate}>
-                      {workshop.startTime.slice(0, 10)}
+                      {formatDate(new Date(workshop.startTime))}
                     </div>
                     <Link
                       href={`/workshops/${workshop.id}`}

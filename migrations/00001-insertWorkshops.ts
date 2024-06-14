@@ -1,6 +1,6 @@
 import { Sql } from 'postgres';
 
-const workshops = [
+const workshopsData = [
   {
     id: 1,
     workshopName: 'Handbalance Workshop',
@@ -49,7 +49,7 @@ const workshops = [
 ];
 
 export async function up(sql: Sql) {
-  for (const workshop of workshops) {
+  for (const workshop of workshopsData) {
     await sql`
       INSERT INTO
         workshops (
@@ -75,4 +75,12 @@ export async function up(sql: Sql) {
   }
 }
 
-export async function down(sql: Sql) {}
+export async function down(sql: Sql) {
+  for (const workshop of workshopsData) {
+    await sql`
+      DELETE FROM workshops
+      WHERE
+        id = ${workshop.id}
+    `;
+  }
+}
