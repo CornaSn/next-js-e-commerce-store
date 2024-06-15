@@ -8,12 +8,12 @@ import styles from './SetCheckoutForm.module.scss';
 export default function SetCheckOutForm(props) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [emailAddress, setEmailAddress] = useState('');
+  const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
-  const [creditCardNumber, setCreditCardNumber] = useState('');
+  const [creditCard, setCreditCard] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const [securityCode, setSecurityCode] = useState('');
 
@@ -22,6 +22,17 @@ export default function SetCheckOutForm(props) {
   const handleCheckout = async () => {
     // Clear cookies
     await clearCookies();
+    // Clear input fields
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setAddress('');
+    setCity('');
+    setPostalCode('');
+    setCountry('');
+    setCreditCard('');
+    setExpirationDate('');
+    setSecurityCode('');
     // Redirect to Thank You page
     router.push('/checkout/thank-you');
   };
@@ -40,6 +51,7 @@ export default function SetCheckOutForm(props) {
                 value={firstName}
                 placeholder="First name"
                 onChange={(event) => setFirstName(event.currentTarget.value)}
+                required
               />
               <label htmlFor="lastName">Last name</label>
               <input
@@ -47,14 +59,16 @@ export default function SetCheckOutForm(props) {
                 value={lastName}
                 placeholder="Last name"
                 onChange={(event) => setLastName(event.currentTarget.value)}
+                required
               />
               <label htmlFor="email">E-Mail Address</label>
               <input
                 id="email"
                 type="email"
-                value={emailAddress}
+                value={email}
                 placeholder="your@email.com"
-                onChange={(event) => setEmailAddress(event.currentTarget.value)}
+                onChange={(event) => setEmail(event.currentTarget.value)}
+                required
               />
             </div>
 
@@ -66,6 +80,7 @@ export default function SetCheckOutForm(props) {
                 value={address}
                 placeholder="Address"
                 onChange={(event) => setAddress(event.currentTarget.value)}
+                required
               />
               <label htmlFor="city">City</label>
               <input
@@ -73,6 +88,7 @@ export default function SetCheckOutForm(props) {
                 value={city}
                 placeholder="City"
                 onChange={(event) => setCity(event.currentTarget.value)}
+                required
               />
               <label htmlFor="postalCode">Postal Code</label>
               <input
@@ -82,6 +98,7 @@ export default function SetCheckOutForm(props) {
                 pattern="\d*"
                 inputMode="numeric"
                 onChange={(event) => setPostalCode(event.currentTarget.value)}
+                required
               />
               <label htmlFor="country">Country</label>
               <input
@@ -89,6 +106,7 @@ export default function SetCheckOutForm(props) {
                 value={country}
                 placeholder="Country"
                 onChange={(event) => setCountry(event.currentTarget.value)}
+                required
               />
             </div>
             <div>
@@ -96,17 +114,17 @@ export default function SetCheckOutForm(props) {
               <label htmlFor="creditCardNumber">Credit Card Number</label>
               <input
                 id="creditCardNumber"
-                value={creditCardNumber}
+                value={creditCard}
                 placeholder="Credit Card Number"
-                onChange={(event) =>
-                  setCreditCardNumber(event.currentTarget.value)
-                }
+                required
+                onChange={(event) => setCreditCard(event.currentTarget.value)}
               />
               <label htmlFor="expirationDate">Expiration Date</label>
               <input
                 id="expirationDate"
                 value={expirationDate}
                 placeholder="MM / YYYY"
+                required
                 onChange={(event) =>
                   setExpirationDate(event.currentTarget.value)
                 }
@@ -116,6 +134,7 @@ export default function SetCheckOutForm(props) {
                 id="securityCode"
                 value={securityCode}
                 placeholder="CVC"
+                required
                 onChange={(event) => setSecurityCode(event.currentTarget.value)}
               />
             </div>
@@ -128,12 +147,12 @@ export default function SetCheckOutForm(props) {
             disabled={
               !firstName ||
               !lastName ||
-              !emailAddress ||
+              !email ||
               !address ||
               !city ||
               !postalCode ||
               !country ||
-              !creditCardNumber ||
+              !creditCard ||
               !expirationDate ||
               !securityCode
             }

@@ -1,29 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { getWorkshopInsecure } from '../../../database/workshops';
 import { getCookie } from '../../../util/cookies.js';
 import { formatDate, formatTime } from '../../../util/dates';
 import { parseJson } from '../../../util/json.js';
-// import { notFound } from '../../not-found.js';
 import SetQuantityForm from './SetQuantityForm';
 import styles from './WorkshopPage.module.scss';
 
 export const metadata = {
-  title: 'Cart',
-  description:
-    'Discover our unique Cornafy Yoga workshops! From handstand mastery to mountain yoga flows, find the perfect workshop to elevate your practice. Sign up today!',
+  title: 'Take part in one of the wonderful workshops from Cornafy Yoga.',
+  description: 'Expierence the adventures Yoga workshops from Cornafy Yoga.',
 };
 
 export default async function WorkshopId(props) {
   const singleWorkshop = await getWorkshopInsecure(
     Number(props.params.workshopId),
   );
-  console.log('getsingleWorkshop', singleWorkshop);
 
-  // // //  Inserting a "not found" page
-  // if (!singleWorkshop) {
-  //   notFound();
-  // }
+  //  Inserting a "not found" page
+  if (!singleWorkshop) {
+    notFound();
+  }
 
   const workshopsQuantityCookies = getCookie('Cart');
   // console.log(typeof workshopsQuantityCookies);
@@ -40,7 +38,6 @@ export default async function WorkshopId(props) {
       return quantityWorkshop.id === singleWorkshop.id;
     },
   );
-  // console.log('workshopQuantityToDisplay', workshopQuantityToDisplay);
 
   return (
     <div className={styles.sectionContainer}>

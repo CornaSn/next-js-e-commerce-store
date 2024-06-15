@@ -79,7 +79,7 @@ export default async function RootLayout({ children }) {
                 </Link>
                 <Link href="/about">About us</Link>
                 <Link href="/workshops">Workshops</Link>
-                {/* <Link href="/contact">Contact</Link> */}
+                <Link href="/contact">Contact</Link>
                 <Link href="/cart" data-test-id="cart-link">
                   <IoCart className={styles.badge} />
                 </Link>

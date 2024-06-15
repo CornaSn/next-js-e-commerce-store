@@ -13,8 +13,6 @@ export const metadata = {
 export default async function Workshops() {
   const workshops = await getWorkshopsInsecure();
 
-  // console.log('page workshops', workshops);
-
   return (
     <section className={styles.previewWorkshops}>
       <div className={styles.containerUpcoming}>

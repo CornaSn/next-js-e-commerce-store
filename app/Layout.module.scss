@@ -19,6 +19,9 @@
     align-items: center;
     font-size: 1.5rem;
   }
+  :link:hover {
+    border-bottom: 1px solid var(--black);
+  }
   .badge {
     margin-left: 7rem;
   }
