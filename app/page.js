@@ -5,6 +5,12 @@ import imageHome from '../public/images/imageHome.webp';
 import { formatDate } from '../util/dates';
 import styles from './Page.module.scss';
 
+export const metadata = {
+  title: { default: 'Home | Cornafy Yoga', template: '%s | Cornafy Yoga' },
+  description:
+    'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
+};
+
 export default async function Home() {
   const workshops = await getWorkshopsInsecure();
 

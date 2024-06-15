@@ -5,7 +5,7 @@ import styles from './ThankYou.module.scss';
 export const metadata = {
   title: 'Thank You',
   description:
-    'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
+    'Thank you for joining Cornafy Yoga! Your registration is confirmed. Get ready to embark on a unique yoga journey with our workshops and retreats.',
 };
 
 export default function ThankYou() {

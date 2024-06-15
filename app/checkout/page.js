@@ -7,7 +7,7 @@ import SetCheckOutForm from './SetCheckoutForm';
 export const metadata = {
   title: 'Check-Out',
   description:
-    'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
+    'Complete your Cornafy Yoga experience! Secure your spot in our unique workshops and retreats. Fast, easy, and secure checkout process. Join us today!',
 };
 
 export default async function CheckOut() {

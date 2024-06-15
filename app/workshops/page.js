@@ -7,7 +7,7 @@ import styles from './Page.module.scss';
 export const metadata = {
   title: 'Retreats',
   description:
-    'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
+    'Explore Cornafy Yoga`s diverse workshops! Find the perfect blend of adventure and serenity with our handstand sessions, climbing retreats, and electro yoga flows. Join us now!',
 };
 
 export default async function Workshops() {

@@ -1,0 +1,17 @@
+.checkoutButton {
+  align-self: right;
+  background-color: var(--blue);
+  border: none;
+  padding: 2rem 4rem;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  margin-left: 80%;
+  margin-bottom: 3rem;
+}
+
+.checkoutButton:hover {
+  background-color: var(--blue);
+  color: var(--white);
+}

@@ -11,7 +11,7 @@ import styles from './Layout.module.scss';
 export const metadata = {
   title: { default: 'Home | Cornafy Yoga', template: '%s | Cornafy Yoga' },
   description:
-    'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
+    'Discover Cornafy Yoga`s seamless and intuitive layout! Navigate through our diverse offerings, from unique workshops to retreats, with ease. Find your perfect yoga experience today!',
 };
 
 export default async function RootLayout({ children }) {

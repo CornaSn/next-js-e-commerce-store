@@ -25,28 +25,11 @@
 
 .removeButton {
   text-align: right;
-
 }
 
 .containerCartWorkshops {
   border: 2px solid var(--blue);
   border-radius: 5px;
-  .checkOutButton {
-    align-self: right;
-    background-color: var(--blue);
-    border: none;
-    padding: 2rem 4rem;
-    border-radius: 5px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 4px;
-    margin-left: 80%;
-  }
-}
-
-.checkOutButton:hover {
-  background-color: var(--blue);
-  color: var(--white);
 }
 
 .containerSingleWorkshop {

@@ -3,12 +3,13 @@ import Link from 'next/link';
 import { formatDate, formatTime } from '../../util/dates';
 import { WorkshopsInCart } from '../../util/workshopsInCart';
 import styles from './Cart.module.scss';
+import CheckoutButton from './CheckoutButtonForm';
 import RemoveButtonForm from './RemoveButtonForm';
 
 export const metadata = {
   title: 'Cart',
   description:
-    'Discover the perfect blend of adventure and serenity with Cornafy Yoga Retreats. Explore our diverse selection of retreats.',
+    'Review your Cornafy Yoga selections! Check your workshop and retreat choices before proceeding to a fast and secure checkout. Ready to join us?',
 };
 
 export default async function CartPage() {
@@ -88,9 +89,7 @@ export default async function CartPage() {
             <div className={styles.totalSum} data-test-id="cart-total">
               Total Sum: {`€ ${totalSum},-`}{' '}
             </div>
-            <Link href="/checkout" className={styles.checkOutButton}>
-              Checkout
-            </Link>
+            <CheckoutButton />
           </>
         )}
       </div>

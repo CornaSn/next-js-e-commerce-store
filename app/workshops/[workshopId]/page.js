@@ -8,6 +8,12 @@ import { parseJson } from '../../../util/json.js';
 import SetQuantityForm from './SetQuantityForm';
 import styles from './WorkshopPage.module.scss';
 
+export const metadata = {
+  title: 'Cart',
+  description:
+    'Discover our unique Cornafy Yoga workshops! From handstand mastery to mountain yoga flows, find the perfect workshop to elevate your practice. Sign up today!',
+};
+
 export default async function WorkshopId(props) {
   const singleWorkshop = await getWorkshopInsecure(
     Number(props.params.workshopId),

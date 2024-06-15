@@ -27,41 +27,35 @@ export default function SetCheckOutForm(props) {
   };
 
   return (
-    <div className={styles.container}>
+    <div>
       <div className={styles.checkoutForm}>
         <h1>Checkout</h1>
         <form onSubmit={(event) => event.preventDefault()}>
-          <div className={styles.checkOutFormSection}>
+          <div>
             <div>
               <h3>Contact Information</h3>
-              <div>
-                <label htmlFor="firstName">First name</label>
-                <input
-                  id="firstName"
-                  type="text"
-                  value={firstName}
-                  placeholder="First name"
-                  onChange={(event) => setFirstName(event.currentTarget.value)}
-                />
-                <label htmlFor="lastName">Last name</label>
-                <input
-                  id="lastName"
-                  type="text"
-                  value={lastName}
-                  placeholder="Last name"
-                  onChange={(event) => setLastName(event.currentTarget.value)}
-                />
-                <label htmlFor="email">E-Mail Address</label>
-                <input
-                  id="email"
-                  type="email"
-                  value={emailAddress}
-                  placeholder="your@email.com"
-                  onChange={(event) =>
-                    setEmailAddress(event.currentTarget.value)
-                  }
-                />
-              </div>
+              <label htmlFor="firstName">First name</label>
+              <input
+                id="firstName"
+                value={firstName}
+                placeholder="First name"
+                onChange={(event) => setFirstName(event.currentTarget.value)}
+              />
+              <label htmlFor="lastName">Last name</label>
+              <input
+                id="lastName"
+                value={lastName}
+                placeholder="Last name"
+                onChange={(event) => setLastName(event.currentTarget.value)}
+              />
+              <label htmlFor="email">E-Mail Address</label>
+              <input
+                id="email"
+                type="email"
+                value={emailAddress}
+                placeholder="your@email.com"
+                onChange={(event) => setEmailAddress(event.currentTarget.value)}
+              />
             </div>
 
             <div>
@@ -69,7 +63,6 @@ export default function SetCheckOutForm(props) {
               <label htmlFor="address">Address</label>
               <input
                 id="address"
-                type="text"
                 value={address}
                 placeholder="Address"
                 onChange={(event) => setAddress(event.currentTarget.value)}
@@ -77,7 +70,6 @@ export default function SetCheckOutForm(props) {
               <label htmlFor="city">City</label>
               <input
                 id="city"
-                type="text"
                 value={city}
                 placeholder="City"
                 onChange={(event) => setCity(event.currentTarget.value)}
@@ -85,7 +77,6 @@ export default function SetCheckOutForm(props) {
               <label htmlFor="postalCode">Postal Code</label>
               <input
                 id="postalCode"
-                type="text"
                 value={postalCode}
                 placeholder="Postal Code"
                 pattern="\d*"
@@ -95,7 +86,6 @@ export default function SetCheckOutForm(props) {
               <label htmlFor="country">Country</label>
               <input
                 id="country"
-                type="text"
                 value={country}
                 placeholder="Country"
                 onChange={(event) => setCountry(event.currentTarget.value)}
@@ -106,7 +96,6 @@ export default function SetCheckOutForm(props) {
               <label htmlFor="creditCardNumber">Credit Card Number</label>
               <input
                 id="creditCardNumber"
-                type="text"
                 value={creditCardNumber}
                 placeholder="Credit Card Number"
                 onChange={(event) =>
@@ -116,7 +105,6 @@ export default function SetCheckOutForm(props) {
               <label htmlFor="expirationDate">Expiration Date</label>
               <input
                 id="expirationDate"
-                type="text"
                 value={expirationDate}
                 placeholder="MM / YYYY"
                 onChange={(event) =>
@@ -126,7 +114,6 @@ export default function SetCheckOutForm(props) {
               <label htmlFor="securityCode">Security Code</label>
               <input
                 id="securityCode"
-                type="text"
                 value={securityCode}
                 placeholder="CVC"
                 onChange={(event) => setSecurityCode(event.currentTarget.value)}
