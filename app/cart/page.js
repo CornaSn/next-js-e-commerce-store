@@ -20,7 +20,6 @@ export default async function CartPage() {
   const totalSum = workshopsInCart.reduce((accumulator, workshop) => {
     return accumulator + Number(workshop.price) * Number(workshop.quantity);
   }, initialValue);
-  console.log('totalSum:', totalSum);
 
   return (
     <div className={styles.containerCart}>

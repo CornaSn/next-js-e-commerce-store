@@ -7,8 +7,8 @@ import { sql } from './connect';
 //     id: 1,
 //     workshopName: 'Handbalance Workshop',
 //     location: 'Vienna',
-//     startTime: '2024-07-13 09:00:00+00',
-//     endTime: '2024-07-13 13:00:00+00',
+//     startTime: '2024-07-13 09:00:00+02',
+//     endTime: '2024-07-13 13:00:00+02',
 //     price: 45,
 //     image: 'handBalance',
 //     description:
@@ -18,8 +18,8 @@ import { sql } from './connect';
 //     id: 2,
 //     workshopName: 'Full Moon Yoga',
 //     location: 'Vienna',
-//     startTime: '2024-08-19 17:00:00+00',
-//     endTime: '2024-08-19 20:00:00+00',
+//     startTime: '2024-08-19 17:00:00+02',
+//     endTime: '2024-08-19 20:00:00+02',
 //     price: 35,
 //     image: 'childPose',
 //     description:
@@ -29,8 +29,8 @@ import { sql } from './connect';
 //     id: 3,
 //     workshopName: 'Mountain Yoga',
 //     location: 'Salzburg',
-//     startTime: '2024-09-14 09:00:00+00',
-//     endTime: '2024-08-15 17:00:00+00',
+//     startTime: '2024-09-14 09:00:00+02',
+//     endTime: '2024-08-15 17:00:00+02',
 //     price: 230,
 //     image: 'meditationMountain',
 //     description:
@@ -41,8 +41,8 @@ import { sql } from './connect';
 //     id: 4,
 //     workshopName: 'Prenatal Yoga',
 //     location: 'Vienna',
-//     startTime: '2024-10-17 10:00:00+00',
-//     endTime: '2024-10-17 13:00:00+00',
+//     startTime: '2024-10-17 10:00:00+02',
+//     endTime: '2024-10-17 13:00:00+02',
 //     price: 55,
 //     image: 'pregnantYoga',
 //     description:

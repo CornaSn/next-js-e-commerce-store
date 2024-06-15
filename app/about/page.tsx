@@ -55,7 +55,7 @@ export default function AboutPage() {
       <section className={styles.aboutUsImages}>
         <div className={styles.imageContainer}>
           <Image
-            src={`/images/persona1.webp`}
+            src="/images/persona1.webp"
             alt="Trainer Anja"
             objectFit="cover"
             layout="fill"
@@ -63,7 +63,7 @@ export default function AboutPage() {
         </div>
         <div className={styles.imageContainer}>
           <Image
-            src={`/images/persona2.webp`}
+            src="/images/persona2.webp"
             alt="Trainer Steffi"
             objectFit="cover"
             layout="fill"
@@ -71,7 +71,7 @@ export default function AboutPage() {
         </div>
         <div className={styles.imageContainer}>
           <Image
-            src={`/images/persona3.webp`}
+            src="/images/persona3.webp"
             alt="Trainer Cornelia"
             objectFit="cover"
             layout="fill"

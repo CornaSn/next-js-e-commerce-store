@@ -16,8 +16,6 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const workshops = await getWorkshopsInsecure();
-  console.log('workshopsFromDatenbank', workshops);
-
   const workshopsQuantityCookie = getCookie('Cart');
 
   const workshopQuantity = !workshopsQuantityCookie

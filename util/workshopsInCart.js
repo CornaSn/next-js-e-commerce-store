@@ -1,6 +1,6 @@
 import { getWorkshopsInsecure } from '../database/workshops';
-import { parseJson } from '../util/json.js';
 import { getCookie } from './cookies';
+import { parseJson } from './json.js';
 
 export async function WorkshopsInCart() {
   const workshops = await getWorkshopsInsecure();

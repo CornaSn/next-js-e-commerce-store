@@ -5,8 +5,8 @@ const workshopsData = [
     id: 1,
     workshopName: 'Handbalance Workshop',
     location: 'Vienna',
-    startTime: new Date('2024-07-13 09:00:00+00'),
-    endTime: new Date('2024-07-13 13:00:00+00'),
+    startTime: new Date('2024-07-13 09:00:00+02'),
+    endTime: new Date('2024-07-13 13:00:00+02'),
     price: 45,
     image: 'handBalance',
     description:
@@ -16,8 +16,8 @@ const workshopsData = [
     id: 2,
     workshopName: 'Full Moon Yoga',
     location: 'Vienna',
-    startTime: new Date('2024-08-19 17:00:00+00'),
-    endTime: new Date('2024-08-19 20:00:00+00'),
+    startTime: new Date('2024-08-19 17:00:00+02'),
+    endTime: new Date('2024-08-19 20:00:00+02'),
     price: 35,
     image: 'childPose',
     description:
@@ -27,8 +27,8 @@ const workshopsData = [
     id: 3,
     workshopName: 'Mountain Yoga',
     location: 'Salzburg',
-    startTime: new Date('2024-09-14 09:00:00+00'),
-    endTime: new Date('2024-08-15 17:00:00+00'),
+    startTime: new Date('2024-09-14 09:00:00+02'),
+    endTime: new Date('2024-08-15 17:00:00+02'),
     price: 230,
     image: 'meditationMountain',
     description:
@@ -39,8 +39,8 @@ const workshopsData = [
     id: 4,
     workshopName: 'Prenatal Yoga',
     location: 'Vienna',
-    startTime: new Date('2024-10-17 10:00:00+00'),
-    endTime: new Date('2024-10-17 13:00:00+00'),
+    startTime: new Date('2024-10-17 10:00:00+02'),
+    endTime: new Date('2024-10-17 13:00:00+02'),
     price: 55,
     image: 'pregnantYoga',
     description:

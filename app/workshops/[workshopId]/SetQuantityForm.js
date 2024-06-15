@@ -26,11 +26,11 @@ export default function SetQuantityForm(props) {
         </select>
         <button
           className={styles.buttonQuantity}
-          // className={styles.buttonAddToCart}
           data-test-id="product-add-to-cart"
-          formAction={async () =>
-            await addQuantityToCart(props.singleWorkshopId, quantity)
-          }
+          formAction={async () => {
+            await addQuantityToCart(props.singleWorkshopId, quantity);
+            alert(`${quantity} Workshop added to cart! `);
+          }}
         >
           Add to Cart
         </button>

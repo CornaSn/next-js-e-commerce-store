@@ -4,7 +4,7 @@ import { getCookie } from '../../util/cookies.js';
 
 export async function removeWorkshop(workshopId) {
   // Get current Workshops in cookie
-  const workshopsQuantityCookie = getCookie('AddToCart');
+  const workshopsQuantityCookie = getCookie('Cart');
 
   const workshopQuantity = !workshopsQuantityCookie
     ? []
@@ -16,5 +16,5 @@ export async function removeWorkshop(workshopId) {
     },
   );
 
-  await cookies().set('AddToCart', JSON.stringify(workshopLeftAfterRemoving));
+  await cookies().set('Cart', JSON.stringify(workshopLeftAfterRemoving));
 }
