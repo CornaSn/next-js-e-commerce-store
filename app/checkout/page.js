@@ -18,7 +18,7 @@ export default async function CheckOut() {
   const initialValue = 0;
   const totalSum = workshopsInCart.reduce(
     (accumulator, workshop) =>
-      (accumulator + Number(workshop.price)) * Number(workshop.quantity),
+      accumulator + Number(workshop.price) * Number(workshop.quantity),
     initialValue,
   );
 
