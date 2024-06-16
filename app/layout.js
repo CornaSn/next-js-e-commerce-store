@@ -7,12 +7,17 @@ import Logo from '../public/images/logo.webp';
 import { getCookie } from '../util/cookies';
 import { parseJson } from '../util/json';
 import styles from './Layout.module.scss';
+import { WorkshopQuantity } from './workshops/[workshopId]/actions';
 
 export const metadata = {
   title: { default: 'Home | Cornafy Yoga', template: '%s | Cornafy Yoga' },
   description:
     'Discover Cornafy Yoga`s seamless and intuitive layout! Navigate through our diverse offerings, from unique workshops to retreats, with ease. Find your perfect yoga experience today!',
 };
+
+// type Props = {
+//   children: React.ReactNode;
+// };
 
 export default async function RootLayout({ children }) {
   const workshops = await getWorkshopsInsecure();
@@ -63,7 +68,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body /*className={`${geistSans.variable} ${geistMono.variable}`}*/>
+      <body>
         <header className={styles.header}>
           <div className={styles.navigation}>
             <nav>

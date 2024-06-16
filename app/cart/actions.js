@@ -2,7 +2,7 @@
 import { cookies } from 'next/headers.js';
 import { getCookie } from '../../util/cookies';
 
-export async function removeWorkshop(workshopId: number) {
+export async function removeWorkshop(workshopId) {
   // Get current Workshops in cookie
   const workshopsQuantityCookie = getCookie('Cart');
 

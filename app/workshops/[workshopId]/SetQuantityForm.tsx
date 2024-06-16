@@ -17,7 +17,8 @@ export default function SetQuantityForm(props: Props) {
         <select
           className={styles.quantityOption}
           data-test-id="product-quantity"
-          min="1"
+          // TO DO: fix this typescript Error
+          // min="1"
           value={quantity}
           onChange={(event) => setQuantity(event.currentTarget.value)}
         >

@@ -22,18 +22,16 @@ export async function addQuantityToCart(
   const workshopsQuantityCookie = getCookie('Cart');
 
   // 2. Parse the cookie value
-  const workshopQuantities = !workshopsQuantityCookie
+  const workshopQuantities: WorkshopQuantity[] = !workshopsQuantityCookie
     ? // Case A - Cookie is undefined
       []
     : JSON.parse(workshopsQuantityCookie) || [];
   // : parseJson(workshopsQuantityCookie) || []; // Empty Array in case the JSON.parse is defect or has an error
 
   // 3. Edit the cookie value | Search inside Cookie if there is an ID matching the Cookie ID
-  const workshopToUpdate = workshopQuantities.find(
-    (workshopQuantity: WorkshopQuantity) => {
-      return workshopQuantity.id === singleWorkshopId;
-    },
-  );
+  const workshopToUpdate = workshopQuantities.find((workshopQuantity) => {
+    return workshopQuantity.id === singleWorkshopId;
+  });
 
   // Case B - Cookie exists, we need to add a new comment
   if (!workshopToUpdate) {
