@@ -4,7 +4,11 @@ import { useState } from 'react';
 import { addQuantityToCart } from './actions';
 import styles from './SetQuantity.module.scss';
 
-export default function SetQuantityForm(props) {
+type Props = {
+  singleWorkshopId: number;
+};
+
+export default function SetQuantityForm(props: Props) {
   const [quantity, setQuantity] = useState('');
   return (
     <form>

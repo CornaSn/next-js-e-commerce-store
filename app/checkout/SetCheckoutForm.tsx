@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { clearCookies } from './actions';
 import styles from './SetCheckoutForm.module.scss';
 
-export default function SetCheckOutForm(props) {
+export default function SetCheckOutForm() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');

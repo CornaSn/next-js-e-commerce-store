@@ -1,6 +1,6 @@
 import sjson from 'secure-json-parse';
 
-export function parseJson(json) {
+export function parseJson(json: string) {
   if (!json) {
     return undefined;
   }

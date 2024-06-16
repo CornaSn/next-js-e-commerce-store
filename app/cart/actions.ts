@@ -1,8 +1,8 @@
 'use server';
 import { cookies } from 'next/headers.js';
-import { getCookie } from '../../util/cookies.js';
+import { getCookie } from '../../util/cookies';
 
-export async function removeWorkshop(workshopId) {
+export async function removeWorkshop(workshopId: number) {
   // Get current Workshops in cookie
   const workshopsQuantityCookie = getCookie('Cart');
 

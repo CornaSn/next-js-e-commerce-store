@@ -17,7 +17,7 @@ export default async function Home() {
   return (
     <div>
       <section className={styles.introTop}>
-        <div className={styles.container}>
+        <div>
           <div>
             <h1>Welcome to Cornafy Yoga!</h1>
             <p>

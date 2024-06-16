@@ -29,25 +29,6 @@ export default async function WorkshopId(props: Props) {
     notFound();
   }
 
-  // const workshopsQuantityCookies = getCookie('Cart');
-  // // console.log(typeof workshopsQuantityCookies);
-
-  // const workshopQuantity = !workshopsQuantityCookies
-  //   ? // Case A - Cookie is undefined
-  //     []
-  //   : parseJson(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
-
-  // // console.log('workshopQuantity', workshopQuantity);
-  // type WorkshopQuantity = {
-  //   id: number;
-  // };
-
-  // const workshopQuantityToDisplay = workshopQuantity.find(
-  //   (quantityWorkshop: WorkshopQuantity) => {
-  //     return quantityWorkshop.id === singleWorkshop.id;
-  //   },
-  // );
-
   return (
     <div className={styles.sectionContainer}>
       <h1 className={styles.singleWorkshopHeading}>

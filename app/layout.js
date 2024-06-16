@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { IoCart, IoHome } from 'react-icons/io5';
 import { getWorkshopsInsecure } from '../database/workshops';
 import Logo from '../public/images/logo.webp';
-import { getCookie } from '../util/cookies.js';
-import { parseJson } from '../util/json.js';
+import { getCookie } from '../util/cookies';
+import { parseJson } from '../util/json';
 import styles from './Layout.module.scss';
 
 export const metadata = {
