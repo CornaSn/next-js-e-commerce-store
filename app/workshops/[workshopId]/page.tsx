@@ -13,7 +13,13 @@ export const metadata = {
   description: 'Expierence the adventures Yoga workshops from Cornafy Yoga.',
 };
 
-export default async function WorkshopId(props) {
+type Props = {
+  params: {
+    workshopId: string;
+  };
+};
+
+export default async function WorkshopId(props: Props) {
   const singleWorkshop = await getWorkshopInsecure(
     Number(props.params.workshopId),
   );
@@ -23,21 +29,24 @@ export default async function WorkshopId(props) {
     notFound();
   }
 
-  const workshopsQuantityCookies = getCookie('Cart');
-  // console.log(typeof workshopsQuantityCookies);
+  // const workshopsQuantityCookies = getCookie('Cart');
+  // // console.log(typeof workshopsQuantityCookies);
 
-  const workshopQuantity = !workshopsQuantityCookies
-    ? // Case A - Cookie is undefined
-      []
-    : parseJson(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
+  // const workshopQuantity = !workshopsQuantityCookies
+  //   ? // Case A - Cookie is undefined
+  //     []
+  //   : parseJson(workshopsQuantityCookies) || []; // Empty Array in case the JSON.parse is defect or has an error
 
-  // console.log('workshopQuantity', workshopQuantity);
+  // // console.log('workshopQuantity', workshopQuantity);
+  // type WorkshopQuantity = {
+  //   id: number;
+  // };
 
-  const workshopQuantityToDisplay = workshopQuantity.find(
-    (quantityWorkshop) => {
-      return quantityWorkshop.id === singleWorkshop.id;
-    },
-  );
+  // const workshopQuantityToDisplay = workshopQuantity.find(
+  //   (quantityWorkshop: WorkshopQuantity) => {
+  //     return quantityWorkshop.id === singleWorkshop.id;
+  //   },
+  // );
 
   return (
     <div className={styles.sectionContainer}>
