@@ -1,4 +1,3 @@
-import { config } from 'dotenv-safe';
 import { postgresConfig, setEnvironmentVariables } from './util/config.js';
 
 setEnvironmentVariables();
