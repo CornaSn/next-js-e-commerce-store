@@ -30,6 +30,8 @@ The Next.js e-Commerce Store is a project that is build as a full-stack web appl
 - Next.js
 - Sass
 - Postgres
+- Fly.io
+- Docker
 
 ## Setup
 
