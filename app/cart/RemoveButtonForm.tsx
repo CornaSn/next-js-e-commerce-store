@@ -16,7 +16,6 @@ export default function RemoveButton(props: Props) {
         formAction={async () => await removeWorkshop(props.workshopId)}
         className={styles.removeButton}
       >
-        REMOVE
         <CiCircleRemove />
       </button>
     </form>
