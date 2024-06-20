@@ -23,18 +23,39 @@
     border-bottom: 1px solid var(--black);
   }
   .badge {
-    margin-left: 7rem;
+    position: relative;
+    display: inline-block;
+
+    svg {
+      font-size: 2rem;
+    }
   }
 }
 
-.badgeNumber {
-  height: 10vh;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 5px;
-  width: 0.7rem;
-  position: relative;
-  right: 11rem;
-  top: 1rem;
-  color: var(--blue);
+/* Responsive styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    align-items: flex-start;
+
+    li {
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation ul {
+    font-size: 1rem;
+
+    .badge svg {
+      font-size: 1.5rem;
+    }
+  }
 }

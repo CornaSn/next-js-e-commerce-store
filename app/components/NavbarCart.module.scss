@@ -1,0 +1,24 @@
+.badge {
+  position: relative;
+  display: inline-block;
+
+  svg {
+    font-size: 2rem;
+  }
+}
+
+.badgeNumber {
+  position: absolute;
+  top: -0.5rem;
+  right: -1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: var(--badge-background-color, var(--blue));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
