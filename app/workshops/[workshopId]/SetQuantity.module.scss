@@ -1,34 +1,53 @@
 .quantity {
-  font-size: 1.3rem;
-  letter-spacing: 2px;
-  line-height: 2rem;
   font-weight: 600;
-  word-spacing: 0.2rem;
-  margin-bottom: 3rem;
+  letter-spacing: 1px;
 }
 
 .quantityOption {
   margin: 1rem;
-  padding: 0.75rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border-radius: 5px;
   background-color: var(--grey);
 }
 
 .buttonQuantity {
-  background-color: white;
-  color: blue;
+  background-color: var(--grey);
+  color: var(--blue);
   border: none;
-  padding: 1rem 3rem;
+  padding: 0.75rem 4rem;
   cursor: pointer;
-  margin-top: 6rem;
   border-radius: 5px;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  display: block;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .buttonQuantity:hover {
   background-color: var(--blue);
   color: var(--white);
+}
+
+@media (min-width: 768px) {
+  .quantity {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    line-height: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .quantityOption {
+    padding: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .buttonQuantity {
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
+  }
 }
