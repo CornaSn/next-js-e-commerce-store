@@ -52,6 +52,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 .previewWorkshops .moreDetailsButton {
@@ -78,7 +79,7 @@
 }
 
 .workshopLocation {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
@@ -86,7 +87,7 @@
 }
 
 .workshopDate {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 900;
   letter-spacing: 2px;
 }

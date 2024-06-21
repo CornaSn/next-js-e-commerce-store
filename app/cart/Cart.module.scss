@@ -1,6 +1,5 @@
 .containerCart {
   padding: 3rem;
-  background-color: var(--cream);
 
   h1 {
     color: var(--blue);
@@ -22,12 +21,16 @@
   }
 
   .containerCartWorkshops {
-    border: 2px solid var(--blue);
-    border-radius: 5px;
+    border: 0.1rem solid var(--black);
+    border-radius: 2%;
+    padding: 2rem;
     margin-top: 3rem;
   }
 
   .containerSingleWorkshop {
+    padding: 1rem 2rem;
+    border: 1px solid var(--grey);
+    border-radius: 0.2rem;
     display: flex;
     flex-direction: column;
     margin-bottom: 3rem;

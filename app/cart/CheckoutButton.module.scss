@@ -1,16 +1,19 @@
 .checkoutButton {
-  background-color: var(--blue);
+  background-color: var(--grey);
+  color: var(--blue);
   border: none;
-  padding: 1.5rem 3rem;
+  padding: 0.75rem 4rem;
+  cursor: pointer;
   border-radius: 5px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  letter-spacing: 4px;
-  margin-top: 2rem;
+  letter-spacing: 1px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  display: block;
+  margin-bottom: 1rem;
   width: 100%;
-  max-width: 300px;
-  margin-left: auto;
-  margin-bottom: 3rem;
 }
 
 .checkoutButton:hover {

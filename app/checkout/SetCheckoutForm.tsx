@@ -97,6 +97,7 @@ export default function SetCheckOutForm() {
                 placeholder="Postal Code"
                 pattern="\d*"
                 inputMode="numeric"
+                type="tel"
                 onChange={(event) => setPostalCode(event.currentTarget.value)}
                 required
               />
@@ -116,6 +117,9 @@ export default function SetCheckOutForm() {
                 id="creditCardNumber"
                 value={creditCard}
                 placeholder="Credit Card Number"
+                pattern="\d*"
+                inputMode="numeric"
+                type="tel"
                 required
                 onChange={(event) => setCreditCard(event.currentTarget.value)}
               />
@@ -124,6 +128,9 @@ export default function SetCheckOutForm() {
                 id="expirationDate"
                 value={expirationDate}
                 placeholder="MM / YYYY"
+                pattern="\d*"
+                inputMode="numeric"
+                type="tel"
                 required
                 onChange={(event) =>
                   setExpirationDate(event.currentTarget.value)
@@ -133,6 +140,9 @@ export default function SetCheckOutForm() {
               <input
                 id="securityCode"
                 value={securityCode}
+                pattern="\d*"
+                inputMode="numeric"
+                type="tel"
                 placeholder="CVC"
                 required
                 onChange={(event) => setSecurityCode(event.currentTarget.value)}
