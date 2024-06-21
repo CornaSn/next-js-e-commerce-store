@@ -158,3 +158,128 @@
   background-color: var(--grey);
   color: white;
 }
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .introTop {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .introTop h1,
+  .introTop div {
+    width: 90%;
+    margin: 1rem;
+  }
+
+  .bigPictureHome {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .intro {
+    padding: 2rem 1rem;
+  }
+
+  .intro div {
+    width: 90%;
+  }
+
+  .previewWorkshops {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .previewWorkshops .workshopList {
+    width: 90%;
+  }
+
+  .previewWorkshops .workshopItem {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .introTop {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .introTop h1,
+  .introTop div {
+    width: 80%;
+    margin: 1rem;
+  }
+
+  .bigPictureHome {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .intro {
+    padding: 2rem 4rem;
+  }
+
+  .intro div {
+    width: 80%;
+  }
+
+  .previewWorkshops {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .previewWorkshops .workshopList {
+    width: 90%;
+  }
+
+  .previewWorkshops .workshopItem {
+    width: 45%;
+    margin: 1rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .introTop {
+    flex-direction: row;
+  }
+
+  .introTop h1 {
+    width: 40rem;
+  }
+
+  .introTop div {
+    width: 30rem;
+    margin-left: 2rem;
+    margin-right: 20rem;
+  }
+
+  .bigPictureHome {
+    width: 50rem;
+    margin-left: 16rem;
+  }
+
+  .intro {
+    padding: 3rem 8rem;
+  }
+
+  .intro div {
+    width: 60rem;
+  }
+
+  .previewWorkshops {
+    flex-direction: row;
+  }
+
+  .previewWorkshops .workshopList {
+    width: 80vw;
+  }
+
+  .previewWorkshops .workshopItem {
+    width: 20rem;
+  }
+}

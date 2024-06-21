@@ -89,7 +89,9 @@ export default async function CartPage() {
             <div className={styles.totalSum} data-test-id="cart-total">
               Total Sum: {`€ ${totalSum},-`}{' '}
             </div>
-            <CheckoutButton />
+            <div className={styles.checkoutButtonContainer}>
+              <CheckoutButton />
+            </div>
           </>
         )}
       </div>

@@ -1,17 +1,29 @@
 .checkoutButton {
-  align-self: right;
   background-color: var(--blue);
   border: none;
-  padding: 2rem 4rem;
+  padding: 1.5rem 3rem; /* Padding für kleinere Bildschirme */
   border-radius: 5px;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 4px;
-  margin-left: 80%;
-  margin-bottom: 3rem;
+  margin-top: 2rem; /* Abstand nach oben */
+  width: 100%; /* Standardmäßig die volle Breite */
+  max-width: 300px; /* Maximale Breite für größere Bildschirme begrenzen */
+  margin-left: auto; /* In kleineren Bildschirmen auf die rechte Seite zentrieren */
+  margin-bottom: 3rem; /* Abstand nach unten */
 }
 
 .checkoutButton:hover {
   background-color: var(--blue);
   color: var(--white);
+}
+
+@media (min-width: 768px) {
+  .checkoutButton {
+    align-self: flex-end; /* Am Ende des Flex-Containers ausrichten */
+    margin-left: auto; /* In größeren Bildschirmen auf die rechte Seite zentrieren */
+    margin-right: 3%; /* Abstand von rechts */
+    padding: 2rem 4rem; /* Padding für größere Bildschirme erhöhen */
+    width: auto; /* Breite an den Inhalt anpassen */
+  }
 }

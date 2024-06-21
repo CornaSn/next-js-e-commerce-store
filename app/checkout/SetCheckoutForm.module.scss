@@ -1,18 +1,22 @@
 .checkoutForm {
   opacity: 0.9;
   width: 100%;
-  padding: 2rem 5rem;
+  padding: 2rem 5%;
   background-color: var(--blue);
   font-size: 1.3rem;
   color: white;
   border-radius: 5px;
-  margin-left: 8rem;
+  margin-left: auto;
+  margin-right: auto; /* Center the form horizontally */
+  max-width: 800px; /* Limit the width on larger screens */
+
   h1 {
     margin-bottom: 1.5rem;
     font-size: 2.5rem;
     font-weight: 900;
     text-transform: uppercase;
   }
+
   h3 {
     margin-top: 2.8rem;
     margin-bottom: 1rem;
@@ -20,8 +24,9 @@
     font-weight: 900;
     text-transform: uppercase;
   }
+
   div {
-    margin: 1rem;
+    margin: 1rem 0;
     font-size: 1rem;
     font-weight: 600;
   }
@@ -34,6 +39,7 @@
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
   }
 }
 
@@ -41,7 +47,6 @@
   display: block;
   background-color: rgba(26, 158, 0, 0.993);
   color: var(--white);
-
   border: 3px solid var(--grey);
   padding: 1rem 2rem;
   border-radius: 5px;
@@ -50,9 +55,13 @@
   letter-spacing: 4px;
   cursor: pointer;
   margin-top: 3rem;
-  margin-left: 72%;
+  width: 100%; /* Full width on smaller screens */
+  max-width: 300px; /* Limit width on larger screens */
+  margin-left: auto;
+  margin-right: auto; /* Center the button horizontally */
   text-align: center;
 }
+
 .checkOutButton:disabled {
   background-color: lightgrey;
   cursor: not-allowed;

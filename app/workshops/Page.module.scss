@@ -95,3 +95,19 @@
   background-color: var(--grey);
   color: white;
 }
+
+@media (max-width: 1024px) {
+  .previewWorkshops .workshopList {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .previewWorkshops .workshopList {
+    width: 100%;
+  }
+  .previewWorkshops .workshopItem {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
