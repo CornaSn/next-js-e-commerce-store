@@ -7,9 +7,8 @@
   color: white;
   border-radius: 5px;
   margin-left: auto;
-  margin-right: auto; /* Center the form horizontally */
-  max-width: 800px; /* Limit the width on larger screens */
-
+  margin-right: auto;
+  max-width: 800px;
   h1 {
     margin-bottom: 1.5rem;
     font-size: 2.5rem;
@@ -39,30 +38,30 @@
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    box-sizing: border-box;
   }
-}
 
-.checkOutButton {
-  display: block;
-  background-color: rgba(26, 158, 0, 0.993);
-  color: var(--white);
-  border: 3px solid var(--grey);
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 4px;
-  cursor: pointer;
-  margin-top: 3rem;
-  width: 100%; /* Full width on smaller screens */
-  max-width: 300px; /* Limit width on larger screens */
-  margin-left: auto;
-  margin-right: auto; /* Center the button horizontally */
-  text-align: center;
-}
+  .checkOutButton {
+    display: block;
+    background-color: rgba(26, 158, 0, 0.993);
+    color: var(--white);
+    border: 3px solid var(--grey);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    cursor: pointer;
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 
-.checkOutButton:disabled {
-  background-color: lightgrey;
-  cursor: not-allowed;
+  .checkOutButton:disabled {
+    background-color: lightgrey;
+    cursor: not-allowed;
+  }
 }

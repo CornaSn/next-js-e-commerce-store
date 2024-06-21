@@ -3,12 +3,12 @@
   font-size: 18px;
   line-height: 2rem;
   display: flex;
-  flex-direction: column; /* Stack items vertically on smaller screens */
+  flex-direction: column;
   border-radius: 5px;
   opacity: 0.9;
 
   @media (min-width: 768px) {
-    flex-direction: row; /* Align items horizontally on larger screens */
+    flex-direction: row;
   }
 }
 
@@ -42,16 +42,16 @@
   }
 
   @media (min-width: 768px) {
-    margin-left: 3%; /* Adjust margin for better layout on larger screens */
+    margin-left: 3%;
     width: 40%;
   }
 }
 
 .checkOutForm {
   width: 100%;
-  max-width: 100rem; /* Limit maximum width to prevent stretching */
-  padding: 2rem; /* Adjust padding for better spacing */
-  margin: 0 auto; /* Center the form horizontally */
+  max-width: 100rem;
+  padding: 2rem;
+  margin: 0 auto;
 
   h1 {
     margin-bottom: 1.5rem;
@@ -82,13 +82,13 @@
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    box-sizing: border-box;
   }
 }
 
 .totalSum {
   border-top: 3px solid var(--black);
-  margin: 1rem auto; /* Center the total sum horizontally */
+  margin: 1rem auto;
   padding: 3rem 1rem;
   font-size: 1.8rem;
   font-weight: 600;
