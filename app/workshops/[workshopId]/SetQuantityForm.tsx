@@ -11,7 +11,7 @@ type Props = {
 export default function SetQuantityForm(props: Props) {
   const [quantity, setQuantity] = useState('');
   return (
-    <form className={styles.quantityForm}>
+    <form>
       <label>
         <a className={styles.quantity}> Qty:</a>
         <select

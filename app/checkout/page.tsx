@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { formatDate } from '../../util/dates';
 import { WorkshopsInCart } from '../../util/workshopsInCart';
 import styles from './Checkout.module.scss';

@@ -8,7 +8,7 @@ import styles from './WorkshopPage.module.scss';
 
 export const metadata = {
   title: 'Take part in one of the wonderful workshops from Cornafy Yoga.',
-  description: 'Expierence the adventures Yoga workshops from Cornafy Yoga.',
+  description: 'Experience the adventures Yoga workshops from Cornafy Yoga.',
 };
 
 type Props = {
