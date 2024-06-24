@@ -50,7 +50,7 @@ export default async function CartPage() {
                       />
                     </div>
                     <div className={styles.cartText}>
-                      <div className={styles.removeButton}>
+                      <div>
                         <RemoveButtonForm workshopId={workshop.id} />
                       </div>
                       <h2>
