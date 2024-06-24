@@ -37,12 +37,14 @@ export default function RootLayout({ children }) {
                   <Link href="/about">About us</Link>
                 </li>
                 <li>
-                  <Link href="/workshops">Workshops</Link>
+                  <Link href="/workshops" data-test-id="products-link">
+                    Workshops
+                  </Link>
                 </li>
                 <li>
                   <Link href="/contact">Contact</Link>
                 </li>
-                <NavbarCart data-test-id="products-link" />
+                <NavbarCart />
               </ul>
             </nav>
           </div>
