@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
                 <li>
                   <Link href="/contact">Contact</Link>
                 </li>
-                <NavbarCart />
+                <NavbarCart data-test-id="products-link" />
               </ul>
             </nav>
           </div>
