@@ -2,7 +2,7 @@
 
 ## About the project
 
-The Next.js e-Commerce Store is a project that is build as a full-stack web application. It is part of the curriculum for the UpLeveled Fullstack Web Development Bootcamp and a work in progress at the moment.
+The Next.js e-Commerce Store is a project that is build as a full-stack web application. It is part of the curriculum for the UpLeveled Fullstack Web Development Bootcamp.
 
 - Workshop Page: Displays a list of all upcoming workshops for users to browse.
 - Single Workshop Page: When a user clicks on a workshop, they are directed to this page. Here, they can find detailed descriptions, adjust the quantity, and add the workshop to their cart.
